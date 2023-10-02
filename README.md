@@ -54,8 +54,6 @@ person.SetName("Ivan");
 person.GetName();
 ```
 
-### Inheritance
-
 ### Polymorphism
 
 Allows objects of different classes to be treated as objects of a common base class.
@@ -89,6 +87,10 @@ Shape square = new Square();
 circle.Draw(); // Outputs "Drawing a circle."
 square.Draw(); // Outputs "Drawing a square." 
 ```
+
+### Inheritance
+
+Sets up parent-child class relationship. Child class inherits/implements all parameters of the parent class.
 
 ## 3. what are constructors?
 ## 4. what is method overloading?
