@@ -2,7 +2,94 @@
 
 ## 1. what is an object in C#? What is a class?
 
+Classes either contain methods/functions that are executed in the program/app or serve as structure templates for objects.
+
+Objects are instances of the latter type of classes.
+
+```C#
+public class Person
+{
+   public string Name { get; set; }
+   public datetime DOB { get; set; }
+}
+
+...
+Person person = new Person();
+person.Name = "Ivan";
+person.DOB = new DateTime(1992, 3, 24);
+```
+
 ## 2. list and describe four fundamental object oriented programming concepts.
+
+### Abstraction
+
+### Encapsulation
+
+```C#
+public class Person
+{
+   public string Name { get; set; }
+}
+...
+Person person = new Person();
+person.Name = "Ivan";
+Console.WriteLine(person.Name); // outputs Ivan
+```
+```C#
+public class Person
+{
+   private string name;
+   public void GetName()
+   {
+       Console.WriteLine(name); // outputs Ivan
+   }
+   public void SetName(string x)
+   {
+       name = x;
+   }
+}
+...
+Person person = new Person();
+person.SetName("Ivan");
+person.GetName();
+```
+
+### Inheritance
+
+### Polymorphism
+
+Allows objects of different classes to be treated as objects of a common base class.
+
+```C#
+public class Shape
+{
+    public void Draw()
+    {
+        Console.WriteLine("Drawing a shape.");
+    }
+}
+public class Circle : Shape
+{
+    public void Draw()
+    {
+        Console.WriteLine("Drawing a circle.");
+    }
+}
+public class Square : Shape
+{
+    public void Draw()
+    {
+        Console.WriteLine("Drawing a square.");
+    }
+}
+...
+Shape circle = new Circle();
+Shape square = new Square();
+
+circle.Draw(); // Outputs "Drawing a circle."
+square.Draw(); // Outputs "Drawing a square." 
+```
+
 ## 3. what are constructors?
 ## 4. what is method overloading?
 ## 5. describe metod overriding. What is the purpose of the virtual statement?
