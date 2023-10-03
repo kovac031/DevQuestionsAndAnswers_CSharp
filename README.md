@@ -124,8 +124,17 @@ public class BoardGameController : Controller
 ...
 ```
 
-
 ## 4. what is method overloading?
+The ability to use the same method name for methods with different parameters.
+```C#
+[HttpGet]
+public async Task<ActionResult> CreateBoardGameAsync()
+{ ... }
+[HttpPost]
+public async Task<ActionResult> CreateBoardGameAsync(BoardGameView boardGameView, string sorting)
+{ ... }
+```
+
 ## 5. describe metod overriding. What is the purpose of the virtual statement?
 ## 6. list access modifiers in C#.
 ## 7. what is the difference between a Struct and a Class?
