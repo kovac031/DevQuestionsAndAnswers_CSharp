@@ -14,7 +14,7 @@ public class Person
 }
 
 ...
-Person person = new Person();
+Person person = new Person(); // instantiate the Person object using "new"
 person.Name = "Ivan";
 person.DOB = new DateTime(1992, 3, 24);
 ```
@@ -104,6 +104,27 @@ square.Draw(); // Outputs "Drawing a square."
 ```
 
 ## 3. what are constructors?
+A special method with the purpose of initializing objects from different classes. Cannot have a return type, cannot be void.
+
+Constructors have the same name as the class they belong to.
+
+Used for injecting dependencies.
+
+```C#
+public class BoardGameController : Controller
+    {
+        public IBoardGameService BoardGameService { get; set; }
+        public IReviewService ReviewService { get; set; }
+         // constructor:
+        public BoardGameController(IBoardGameService boardGameService, IReviewService reviewService)
+        {
+            BoardGameService = boardGameService; // initializes values for BoardGameService object
+            ReviewService = reviewService;
+        }
+...
+```
+
+
 ## 4. what is method overloading?
 ## 5. describe metod overriding. What is the purpose of the virtual statement?
 ## 6. list access modifiers in C#.
