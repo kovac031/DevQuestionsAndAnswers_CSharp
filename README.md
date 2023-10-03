@@ -137,7 +137,7 @@ public async Task<ActionResult> CreateBoardGameAsync(BoardGameView boardGameView
 { ... }
 ```
 
-## 5. describe metod overriding. What is the purpose of the virtual statement?
+## 5. describe method overriding. What is the purpose of the virtual statement?
 When calling a method makes it use the child class implementation instead of the parent class implementation.
 
 Parent class method must be virtual or override.
