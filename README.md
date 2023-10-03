@@ -4,7 +4,7 @@
 
 Classes either contain methods/functions that are executed in the program/app or serve as structure templates for objects.
 
-Objects are instances of the latter type of classes.
+Objects are instances of the latter type of classes. Objects are entities, anything I want to store or process data about.
 
 ```C#
 public class Person
@@ -21,9 +21,15 @@ person.DOB = new DateTime(1992, 3, 24);
 
 ## 2. list and describe four fundamental object oriented programming concepts.
 
+Nesto tu ne stima, razlicti izvori objasnjavaju drugacije abstraction i encapsulation, i sad aj ti znaj
+
 ### Abstraction
+The ability for objects to have parameters. The ability to instantiate objects from classes. 
+
+Sources explain this as "hiding" code from the user, referring to only needing to instantiate the object and calling the relevant method and not needing to do anything with the underlying class that we instantiate into the object.
 
 ### Encapsulation
+Bundling attributes of an object with methods/functions that operate on those attributes into single units = classes
 
 ```C#
 public class Person
@@ -53,10 +59,19 @@ Person person = new Person();
 person.SetName("Ivan");
 person.GetName();
 ```
+### Inheritance
+
+Sets up parent-child class relationship. Child class inherits/implements all parameters of the parent class.
+
+Child classes inherit all the parameters of the parent class, but can have additional for-them particular parameters or methods. 
+
+Person class can be parent to Employee class or Client class. Shape class can be parent to Circle or Square.
 
 ### Polymorphism
 
-Allows objects of different classes to be treated as objects of a common base class.
+Allows objects of different classes to be treated as objects of a common base/parent class.
+
+E.g. using the same method name. Circle and Square inherit the Draw method from Shape class.
 
 ```C#
 public class Shape
@@ -87,10 +102,6 @@ Shape square = new Square();
 circle.Draw(); // Outputs "Drawing a circle."
 square.Draw(); // Outputs "Drawing a square." 
 ```
-
-### Inheritance
-
-Sets up parent-child class relationship. Child class inherits/implements all parameters of the parent class.
 
 ## 3. what are constructors?
 ## 4. what is method overloading?
