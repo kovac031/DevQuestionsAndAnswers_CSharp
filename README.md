@@ -100,7 +100,9 @@ Shape circle = new Circle();
 Shape square = new Square();
 
 circle.Draw(); // Outputs "Drawing a circle."
-square.Draw(); // Outputs "Drawing a square." 
+square.Draw(); // Outputs "Drawing a square."
+
+// "method hiding"
 ```
 
 ## 3. what are constructors?
@@ -136,6 +138,42 @@ public async Task<ActionResult> CreateBoardGameAsync(BoardGameView boardGameView
 ```
 
 ## 5. describe metod overriding. What is the purpose of the virtual statement?
+When calling a method makes it use the child class implementation instead of the parent class implementation.
+
+Parent class method must be virtual or override.
+
+```C#
+public class Shape
+{
+    public virtual void Draw()
+    {
+        Console.WriteLine("Drawing a shape.");
+    }
+}
+public class Circle : Shape
+{
+    public override void Draw()
+    {
+        Console.WriteLine("Drawing a circle.");
+    }
+}
+public class Square : Shape
+{
+    public override void Draw()
+    {
+        Console.WriteLine("Drawing a square.");
+    }
+}
+...
+Shape circle = new Circle();
+Shape square = new Square();
+
+circle.Draw(); 
+square.Draw(); 
+
+// basically the same as method hiding, only keyword differences (override/virtual)
+```
+
 ## 6. list access modifiers in C#.
 ## 7. what is the difference between a Struct and a Class?
 ## 8. describe boxing and unboxing in the context of C#.
