@@ -175,6 +175,31 @@ square.Draw();
 ```
 
 ## 6. list access modifiers in C#.
+> public
+
+... accessible from anywhere.
+
+> private
+
+... not visible from outside of the class.
+
+> protected
+
+... accesible from same class and any child classes
+
+> private protected
+
+... accessible from same assembly and child classes within that assembly
+
+> internal
+
+... accesible from the same assembly
+
+> internal protected
+
+... accessible from the same assembly and child classes in other assemblies
+
+
 ## 7. what is the difference between a Struct and a Class?
 ## 8. describe boxing and unboxing in the context of C#.
 ## 9. which design principles are described by the acronym SOLID? List and describe each of them.
