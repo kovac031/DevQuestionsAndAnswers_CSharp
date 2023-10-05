@@ -201,6 +201,23 @@ square.Draw();
 
 
 ## 7. what is the difference between a Struct and a Class?
+Struct is  value type and Class is a reference type.
+
+```C#
+public class Person
+{
+}
+public struct Person // must have different name though
+{
+}
+...
+Person person2 = person1;
+```
+
+In a class, person1 and person1 reference the same object.
+
+In a struct, person2 is a copy of person1, and we have two different objects.
+
 ## 8. describe boxing and unboxing in the context of C#.
 ## 9. which design principles are described by the acronym SOLID? List and describe each of them.
 Hint - https://dotnetcoretutorials.com/2019/10/17/solid-in-c-single-responsibility-principle/
