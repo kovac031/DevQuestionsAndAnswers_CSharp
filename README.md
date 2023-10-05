@@ -234,8 +234,34 @@ int retrievedValue = (int)listOfObjects[0]; // Unboxing
 Not to be confused with mapping.
 
 ## 9. which design principles are described by the acronym SOLID? List and describe each of them.
-Hint - https://dotnetcoretutorials.com/2019/10/17/solid-in-c-single-responsibility-principle/
-is one of the good practical resources on this topic, and it uses C#.
+- Single Responsibility Principle
+> A class should have only one reason to change, meaning it should have a single responsibility. In other words, a class should do one thing and do it well.
+
+https://dotnetcoretutorials.com/solid-in-c-single-responsibility-principle/
+
+- Open/Closed Principle
+> Software entities (classes, modules, functions, etc.) should be open for extension but closed for modification. E.g. change parameters in the actual helper method being called in the controller method, but don't introduce parameters in the controller method just so the method can work.
+
+https://dotnetcoretutorials.com/solid-in-c-open-closed-principle/
+
+- Liskov Substitution Principle * nije jasno
+> Objects of a derived class should be able to replace objects of the base class without affecting the correctness of the program. In other words, if you have a class hierarchy, derived classes should be substitutable for their base classes without causing issues. (but, apparently this would cause errors anyway)
+
+https://dotnetcoretutorials.com/solid-in-c-liskov-principle/
+
+- Interface Segregation Principle * nije jasno
+> Clients should not be forced to depend on interfaces they do not use. In essence, it encourages the creation of specific, smaller interfaces rather than large, monolithic ones.
+
+https://dotnetcoretutorials.com/solid-in-c-interface-segregation-principle/
+
+- Dependency Inversion Principle * kuzim ali ne znam objasnit
+> High-level modules should not depend on low-level modules; both should depend on abstractions. Abstractions should not depend on details; details should depend on abstractions. This principle encourages the use of interfaces or abstract classes to define dependencies, promoting flexibility and decoupling.
+
+> Dependeny injection is the implementation of dependency inversion principle.
+
+https://dotnetcoretutorials.com/solid-in-c-dependency-inversion/
+
+
 ## 10. explain DRY acronym in the context of object oriented programming.
 ## 11. describe the difference between break and continue statement.
 ## 12. what are the different approaches of passing parameters to a method?
