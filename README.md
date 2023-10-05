@@ -219,6 +219,20 @@ In a class, person1 and person1 reference the same object.
 In a struct, person2 is a copy of person1, and we have two different objects.
 
 ## 8. describe boxing and unboxing in the context of C#.
+
+Boxing converts a non-object data type to a on object, unboxing reverses it.
+
+```C#
+List<object> listOfObjects = new List<object>(); // object is a data type
+int meaningOfLife = 42;
+
+listOfObjects.Add(meaningOfLife); // Boxing
+
+int retrievedValue = (int)listOfObjects[0]; // Unboxing
+```
+
+Not to be confused with mapping.
+
 ## 9. which design principles are described by the acronym SOLID? List and describe each of them.
 Hint - https://dotnetcoretutorials.com/2019/10/17/solid-in-c-single-responsibility-principle/
 is one of the good practical resources on this topic, and it uses C#.
