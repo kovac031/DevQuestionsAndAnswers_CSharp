@@ -263,7 +263,26 @@ https://dotnetcoretutorials.com/solid-in-c-dependency-inversion/
 
 
 ## 10. explain DRY acronym in the context of object oriented programming.
+Don't Repeat Yourself = DRY
+
+> When the same code or logic is needed in multiple places, it should be abstracted into a single, reusable component, such as a function, method, or class.
+
 ## 11. describe the difference between break and continue statement.
+
+Break stops the loop when the condition is met.
+
+Continue skips the iteration when the condition is met.
+```C#
+for (int i = 0; i < 5; i++)
+{
+    if (i == 2)
+    {
+        continue; 
+    }
+    Console.WriteLine(i); // 0,1,3,4 - skipped 2
+}
+```
+
 ## 12. what are the different approaches of passing parameters to a method?
 ## 13. can multiple catch blocks be executed?
 ## 14. what are static properties and methods?
