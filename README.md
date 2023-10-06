@@ -284,6 +284,69 @@ for (int i = 0; i < 5; i++)
 ```
 
 ## 12. what are the different approaches of passing parameters to a method?
+Pass value type by value or reference, pass reference type by value or reference.
+
+> Pass by value means passing a copy of the variable to the method.
+
+> Pass by reference means passing access to the variable to the method.
+
+> A variable of a reference type contains a reference to its data.
+
+> A variable of a value type contains its data directly.
+
+Passing value type, by value vs by reference:
+```C#
+int n = 5;
+int m = 5;
+```
+```C#
+SquareIt(n);  // passing the variable type by value
+static void SquareIt(int x) // takes n
+{
+    x *= x; // x is 25
+}
+// n stays 5
+```
+```C#
+SquareIt(ref m) // passing the variable type by reference
+static void SquareIt(ref int x) // takes m
+{
+    x *= x; // x is 25
+}
+// m becomes 25
+```
+
+Passing reference, by value vs by reference:
+```C#
+int[] array = { 1, 2, 3 };
+```
+```C#
+Change(array); // passing the reference type by value
+static void Change(int[] pArray)
+{
+    pArray[0] = 42;  // This change affects the original element.
+    pArray = new int[3] { -3, -2, -1 };   // This change is local.
+}
+// inside the method the first element becomes -3
+// after execution, the first element is 42 instead of 1
+```
+```C#
+Change(ref array); // passing the reference type by reference
+static void Change(ref int[] pArray)
+{
+   // Both of the following changes will affect the original variables:
+    pArray[0] = 42;  
+    pArray = new int[3] { -3, -2, -1 };  
+}
+// inside the method the first element becomes -3
+// after execution, the first element is -3 instead of 1
+```
+Referencing the original value always changes the original value.
+
+> int is a value type, while int[] is a reference type, which explains the changes to the array and not the int despite the code seeming the same
+
+https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/method-parameters
+
 ## 13. can multiple catch blocks be executed?
 ## 14. what are static properties and methods?
 ## 15. what is the purpose of using statement?
