@@ -356,6 +356,20 @@ Static properties/methods are properties/methods of a class, rather than propert
 Used when we won't be creating objects BUT want the same properties or method to apply across instances of a class.
 
 ## 15. what is the purpose of using statement?
+```C#
+using System;
+```
+For including the System namespace, which has its own classes etc, so we don't have to specify the namespace each time:
+```C#
+System.Console.WriteLine(...);
+```
+Or to define a scope, resource management/cleanup:
+```C#
+using (SqlConnection connection = new SqlConnection(connectionString))
+{
+}
+```
+
 ## 16. what is serialization?
 ## 17. what is an interface in C#?
 ## 18. What's the difference between an interface and abstract class?
