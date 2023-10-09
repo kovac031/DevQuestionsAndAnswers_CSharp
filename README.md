@@ -351,6 +351,10 @@ https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/meth
 No, only the first in the sequence.
 
 ## 14. what are static properties and methods?
+Static properties/methods are properties/methods of a class, rather than properties/methods tied to objects created from that class.
+
+Used when we won't be creating objects BUT want the same properties or method to apply across instances of a class.
+
 ## 15. what is the purpose of using statement?
 ## 16. what is serialization?
 ## 17. what is an interface in C#?
