@@ -379,6 +379,10 @@ HttpContext.Session.SetString("SelectedCharacters", JsonConvert.SerializeObject(
 ```
 
 ## 17. what is an interface in C#?
+An interface declares what its child class should have and should do.
+
+https://www.youtube.com/watch?v=RuhGv81tpoU
+
 ## 18. What's the difference between an interface and abstract class?
 ## 19. can we specify the accessibility modifier for methods inside the interface?
 ## 20. describe the difference between value and reference types.
