@@ -398,7 +398,16 @@ Unlike with interfaces, child classes do not have to implement everything from t
 Interface methods are always public. We do not set the access modifiers inside interfaces.
 
 ## 20. describe the difference between value and reference types.
+A variable of a reference type contains a reference to its data.
+A variable of a value type contains its data directly.
+
+See answer for #12.
+
 ## 21. what are sealed classes?
+Classes which are finalized, will not be extended further or modified and cannot be inherited, i.e. serve as base class.
+
+* treba doradit
+
 ## 22. what are partial classes?
 ## 23. What are the differences between System.String and System.Text.StringBuilder classes?
 ## 24. what are generics in the context of C#?
