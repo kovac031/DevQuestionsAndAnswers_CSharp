@@ -348,6 +348,8 @@ Referencing the original value always changes the original value.
 https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/method-parameters
 
 ## 13. can multiple catch blocks be executed?
+No, only the first in the sequence.
+
 ## 14. what are static properties and methods?
 ## 15. what is the purpose of using statement?
 ## 16. what is serialization?
