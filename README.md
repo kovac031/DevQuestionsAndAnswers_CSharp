@@ -371,6 +371,13 @@ using (SqlConnection connection = new SqlConnection(connectionString))
 ```
 
 ## 16. what is serialization?
+Serialization converts complex objects, which may contain various data types and nested structures, into a stream of bytes or a textual format.
+Used for e.g. passing objects across methods, storing session data.
+
+```C#
+HttpContext.Session.SetString("SelectedCharacters", JsonConvert.SerializeObject(_cardList)); // from my chinese characters app
+```
+
 ## 17. what is an interface in C#?
 ## 18. What's the difference between an interface and abstract class?
 ## 19. can we specify the accessibility modifier for methods inside the interface?
