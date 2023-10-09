@@ -395,6 +395,8 @@ While interfaces serve as "contracts", abstract classes serve as a common space 
 Unlike with interfaces, child classes do not have to implement everything from the abstract class.
 
 ## 19. can we specify the accessibility modifier for methods inside the interface?
+Interface methods are always public. We do not set the access modifiers inside interfaces.
+
 ## 20. describe the difference between value and reference types.
 ## 21. what are sealed classes?
 ## 22. what are partial classes?
