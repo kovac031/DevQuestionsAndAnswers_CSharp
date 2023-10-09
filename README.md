@@ -28,6 +28,10 @@ The ability for objects to have parameters. The ability to instantiate objects f
 
 Sources explain this as "hiding" code from the user, referring to only needing to instantiate the object and calling the relevant method and not needing to do anything with the underlying class that we instantiate into the object.
 
+iz nekog drugog odgovora:
+Abstraction: Interfaces are a way to achieve abstraction in your code, separating the definition of behavior from its implementation details. This promotes good coding practices and design principles like the Dependency Inversion Principle (DIP) and the Liskov Substitution Principle (LSP).
+
+
 ### Encapsulation
 Bundling attributes of an object with methods/functions that operate on those attributes into single units = classes
 
@@ -384,6 +388,12 @@ An interface declares what its child class should have and should do.
 https://www.youtube.com/watch?v=RuhGv81tpoU
 
 ## 18. What's the difference between an interface and abstract class?
+A class can inherit from multiple interfaces, but only one base class. Abstract classes can serve as base class. Abstract classes cannot be instantiated. 
+
+While interfaces serve as "contracts", abstract classes serve as a common space to share code implementation across child classes (it's DRY). 
+
+Unlike with interfaces, child classes do not have to implement everything from the abstract class.
+
 ## 19. can we specify the accessibility modifier for methods inside the interface?
 ## 20. describe the difference between value and reference types.
 ## 21. what are sealed classes?
