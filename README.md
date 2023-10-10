@@ -627,6 +627,25 @@ A data structure which allows for storing and manipulating a collection of index
 > Immutable Collections
 
 ## 35. what is LINQ?
+LINQ (Language Integrated Query) is a powerful feature in C# and .NET that enables you to query and manipulate collections of data in a more concise, readable, and expressive manner. LINQ provides a unified query syntax to work with various data sources, such as arrays, collections, databases, XML, and more.
+
+LINQ is often described as a query language because it allows you to express queries in a way that resembles SQL (Structured Query Language). You can filter, project, group, join, and order data using a familiar syntax.
+```C#
+...
+if (!string.IsNullOrEmpty(searchBy)) // trazi po imenu i prezimenu
+            {
+                filteredList = listDTO.Where(x =>
+                    x.FirstName.Contains(searchBy) ||
+                    x.LastName.Contains(searchBy))
+                    .ToList();
+            }
+...
+List<StudentDTO> filteredDTO = filteredList.Skip((pageNumber - 1) * pageSize)
+                                                        .Take(pageSize)
+                                                        .ToList();
+...
+```
+
 ## 36. describe the difference between IEnumerable and IQueryable.
 ## 37. describe the concept of lazy loading.
 ## 38. explain the concept of deferred execution.
