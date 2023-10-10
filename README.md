@@ -445,6 +445,27 @@ public class Program
 ```
 
 ## 24. what are generics in the context of C#?
+Instead of using overloading and having same-name methods that accept different parameters when we want the method to accept a different data type, we use a generic T data type instead.
+
+```C#
+...
+int[] intArray = { 1,2,3 };
+double[] doubleArray = { 1.0, 2.0, 3.0 };
+string[] stringArray = { "1", "2", "3" };
+
+displayElements(intArray);
+displayElements(doubleArray);
+displayElements(stringArray);
+}
+public static void displayElements<T>(T[] array) // T can be any word
+{
+   foreach (T item in array)
+   {
+      Console.Write(item + "\n");
+   }
+}
+```
+
 ## 25. what are delegates in C#?
 ## 26. what are nullable types in C#?
 ## 27. what are indexers in C#?
