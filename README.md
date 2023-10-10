@@ -412,6 +412,38 @@ Has to do with inheritance. "Either design for inheritance, or else prohibit it"
 Allows dividing a class into parts. E.g. "public class Person" can have multiple "public partial class Person" (same name) that effectively behave the same, but help with code readibality.
 
 ## 23. What are the differences between System.String and System.Text.StringBuilder classes?
+System.String objects are immutable, meaning they can't be changed once created. Changing is actually creating a new object.
+System.Text objects are mutable, you append/insert/remove/replace/clear the same string you created, not create new ones.
+
+```C#
+using System;
+
+public class Program
+{
+    public static void Main()
+    {
+        string immutableString = "Hello ";
+        immutableString += "world!"; // Creates a new string for concatenation
+
+        Console.WriteLine(immutableString); // Hello world!
+    }
+}
+```
+```C#
+using System.Text;
+
+public class Program
+{
+    public static void Main()
+    {
+        StringBuilder mutableStringBuilder = new StringBuilder("Hello ");
+        mutableStringBuilder.Append("world!"); // Modifies the same object
+
+        Console.WriteLine(mutableStringBuilder.ToString()); // Hello world!
+    }
+}
+```
+
 ## 24. what are generics in the context of C#?
 ## 25. what are delegates in C#?
 ## 26. what are nullable types in C#?
