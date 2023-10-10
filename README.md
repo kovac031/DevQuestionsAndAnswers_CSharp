@@ -500,9 +500,43 @@ MyDelegate subtractMethod = operation.Subtract;
 ```
 
 ## 26. what are nullable types in C#?
-data type which can hold null value ... e.g. int?, bool?
+Data type which can hold null value ... e.g. int?, bool?
 
 ## 27. what are indexers in C#?
+Allows for indexing of object lists or arrays.
+
+"this" is a keyword
+
+```C#
+public class CardCollection
+    {
+        private List<CardDTO> cards = new List<CardDTO>(); // already have a CardDTO model class (from my Chinese project)
+
+        public CardDTO this[int index] // Define a custom collection class for CardDTO objects
+        {
+            get { return cards[index]; }
+            set { cards[index] = value; }
+        }        
+        public void Add(CardDTO card) // Add a CardDTO object to the collection.
+        {
+            cards.Add(card);
+        }
+    }
+public class Program
+    {
+      public static void Main()
+        {
+            CardCollection collection = new CardCollection();
+
+            collection.Add(new CardDTO { Simplified = "你好", Traditional = "你好", Pinyin = "Nǐ hǎo" }); // indexes are assigned to entries as they are added
+            collection.Add(new CardDTO { Simplified = "谢谢", Traditional = "謝謝", Pinyin = "Xièxiè" });
+
+            Console.WriteLine(collection[0].Simplified); // 你好
+            Console.WriteLine(collection[1].Simplified); // 谢谢
+        }
+    }
+```
+
 ## 28. what are C# attributes and how they can be used?
 ## 29. explain extension methods.
 ## 30. what is reflection in C#?
