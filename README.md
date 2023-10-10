@@ -562,6 +562,8 @@ class SomeClass
 ```
 
 ## 29. explain extension methods.
+Static methods within static classes where we implement functionality that would otherwise clutter or be repeated (counter DRY) in main methods. Easier and cleaner to just call a helper method from outside.
+
 ## 30. what is reflection in C#?
 ## 31. What is managed or unmanaged code in .NET?
 ## 32. what are namespaces?
