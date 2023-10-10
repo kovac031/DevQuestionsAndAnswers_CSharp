@@ -409,6 +409,8 @@ Classes which are finalized, will not be extended further or modified and cannot
 Has to do with inheritance. "Either design for inheritance, or else prohibit it"
 
 ## 22. what are partial classes?
+Allows dividing a class into parts. E.g. "public class Person" can have multiple "public partial class Person" (same name) that effectively behave the same, but help with code readibality.
+
 ## 23. What are the differences between System.String and System.Text.StringBuilder classes?
 ## 24. what are generics in the context of C#?
 ## 25. what are delegates in C#?
