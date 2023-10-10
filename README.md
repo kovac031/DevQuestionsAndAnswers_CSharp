@@ -597,6 +597,8 @@ using DAL;
 ```
 
 ## 33. describe arrays in C#.
+A data structure which allows for storing and manipulating a collection of indexed elements of the same data type.
+
 ## 34. what kinds of collections exist in C#?
 ## 35. what is LINQ?
 ## 36. describe the difference between IEnumerable and IQueryable.
