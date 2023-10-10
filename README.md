@@ -406,7 +406,7 @@ See answer for #12.
 ## 21. what are sealed classes?
 Classes which are finalized, will not be extended further or modified and cannot be inherited, i.e. serve as base class.
 
-* treba doradit
+Has to do with inheritance. "Either design for inheritance, or else prohibit it"
 
 ## 22. what are partial classes?
 ## 23. What are the differences between System.String and System.Text.StringBuilder classes?
