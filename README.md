@@ -565,6 +565,22 @@ class SomeClass
 Static methods within static classes where we implement functionality that would otherwise clutter or be repeated (counter DRY) in main methods. Easier and cleaner to just call a helper method from outside.
 
 ## 30. what is reflection in C#?
+Reflection is the ability of a code to access the metadata of the assembly during runtime. We're retrieving some specific info we need.
+
+for example:
+```C#
+Type myType = Type.GetType("System.String");
+```
+```C#
+PropertyInfo propertyInfo = typeof(MyClass).GetProperty("MyProperty");
+```
+```C#
+MethodInfo methodInfo = typeof(MyClass).GetMethod("MyMethod");
+```
+```C#
+Type[] types = Assembly.GetExecutingAssembly().GetTypes();
+```
+
 ## 31. What is managed or unmanaged code in .NET?
 ## 32. what are namespaces?
 ## 33. describe arrays in C#.
