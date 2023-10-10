@@ -467,6 +467,38 @@ public static void displayElements<T>(T[] array) // T can be any word
 ```
 
 ## 25. what are delegates in C#?
+Allows to pass methods as parameters in other methods, and to instantiate methods (using new) like we'd do with objects from classes.
+
+```C#
+public delegate int MyDelegate(int a, int b);
+
+public class Program
+{
+    public static int PerformOperation(int x, int y, MyDelegate operation) // passing MyDelegate as parameter
+    {
+        return operation(x, y);
+    }
+    public static int Add(int a, int b)
+    {
+        return a + b;
+    }
+    public static int Subtract(int a, int b)
+    {
+        return a - b;
+    }
+    public static void Main()
+    {
+        PerformOperation(5, 3, Add);        // int, int, MyDelegate
+        PerformOperation(8, 2, Subtract);  
+    }
+}
+```
+```C#
+MyDelegate operation = new MyDelegate();
+MyDelegate addMethod = operation.Add;
+MyDelegate subtractMethod = operation.Subtract;
+```
+
 ## 26. what are nullable types in C#?
 ## 27. what are indexers in C#?
 ## 28. what are C# attributes and how they can be used?
