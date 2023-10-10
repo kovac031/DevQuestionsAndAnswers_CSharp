@@ -600,6 +600,32 @@ using DAL;
 A data structure which allows for storing and manipulating a collection of indexed elements of the same data type.
 
 ## 34. what kinds of collections exist in C#?
+> Arrays
+
+> BitArray
+
+> Lists
+
+> ArrayList
+
+> LinkedList
+
+> Dictionaries
+
+> Queues
+
+> Stacks
+
+> HashSet
+
+> SortedSet
+
+> Hashtable
+
+> Concurrent Collections
+
+> Immutable Collections
+
 ## 35. what is LINQ?
 ## 36. describe the difference between IEnumerable and IQueryable.
 ## 37. describe the concept of lazy loading.
