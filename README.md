@@ -538,6 +538,29 @@ public class Program
 ```
 
 ## 28. what are C# attributes and how they can be used?
+Attributes specify metadata or custom behavior that will apply to classes or methods.
+
+```C#
+[HttpGet]
+[HttpPost]
+...
+```
+```C#
+class MyAttribute : Attribute // similar to controller naming convention
+{
+}
+[My] // because of name MyAttribute 
+class SomeClass
+{
+   [My]
+   public int MyProperty { get; set; }
+   [My]
+   public void MyMethod()
+   {
+   }
+}
+```
+
 ## 29. explain extension methods.
 ## 30. what is reflection in C#?
 ## 31. What is managed or unmanaged code in .NET?
