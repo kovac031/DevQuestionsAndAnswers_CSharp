@@ -500,6 +500,8 @@ MyDelegate subtractMethod = operation.Subtract;
 ```
 
 ## 26. what are nullable types in C#?
+data type which can hold null value ... e.g. int?, bool?
+
 ## 27. what are indexers in C#?
 ## 28. what are C# attributes and how they can be used?
 ## 29. explain extension methods.
