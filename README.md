@@ -582,6 +582,10 @@ Type[] types = Assembly.GetExecutingAssembly().GetTypes();
 ```
 
 ## 31. What is managed or unmanaged code in .NET?
+Managed code is executed by CLR (Common Language Runtime), while unmanaged code falls outside of that scope and is executed by the OS.
+
+All code I wrote or encountered within the .NET environment was managed code, while potentially some added libraires may have contained unmanaged code.
+
 ## 32. what are namespaces?
 ## 33. describe arrays in C#.
 ## 34. what kinds of collections exist in C#?
