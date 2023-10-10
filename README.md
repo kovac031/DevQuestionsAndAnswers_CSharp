@@ -587,6 +587,15 @@ Managed code is executed by CLR (Common Language Runtime), while unmanaged code 
 All code I wrote or encountered within the .NET environment was managed code, while potentially some added libraires may have contained unmanaged code.
 
 ## 32. what are namespaces?
+Namespaces act as containers or folders for your code, prevent naming conflicts by providing a unique scope for each group of types and can be nested within other namespaces, creating a hierarchical structure. This allows for even finer-grained organization of your code.
+
+```C#
+using System; // using is a relevant keyword, System is the used namespace here
+using Model;
+using DAL;
+...
+```
+
 ## 33. describe arrays in C#.
 ## 34. what kinds of collections exist in C#?
 ## 35. what is LINQ?
