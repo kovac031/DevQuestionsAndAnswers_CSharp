@@ -647,6 +647,20 @@ List<StudentDTO> filteredDTO = filteredList.Skip((pageNumber - 1) * pageSize)
 ```
 
 ## 36. describe the difference between IEnumerable and IQueryable.
+Both are for handling collections, but IEnumerable executes immediately and stores a collection in memory, which is performance heavy, while IQueryable builds a query and does not execute until .ToList
+
+```C#
+IEnumerable<Customer> collection = db.GetCustomersAsEnumerable(); // gets all customers
+
+var goodCustomers = collection.Where(c => c.Revenue > 2500); // narrows it to some amount of goodCustomers
+
+IQueryable<Customer> query = db.GetCustomersAsQueryable(); // gets no customer
+
+goodCustomers = query.Where(c => c.Revenue > 2500);) // again, no customers
+
+var goodCustomersList = goodCustomers.ToList(); // gets some amount of customers based on criteria
+```
+
 ## 37. describe the concept of lazy loading.
 ## 38. explain the concept of deferred execution.
 ## 39. what is the purpose of the C# yield statement?
