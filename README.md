@@ -670,6 +670,10 @@ There is also the Lazy<T> "wrapper" which makes it so that a method is not execu
 Execution of code later, like with .ToList or .First with IQueryable (see #36)
 
 ## 39. what is the purpose of the C# yield statement?
+Using yield return with loops we return results one by one on each iteration, as opposed to waiting for the entire sequence to complete first and then see results.
+
+https://www.youtube.com/watch?v=uv74SZ5MX5Q
+
 ## 40. explain lambda expressions.
 ## 41. what is type inference?
 ## 42. explain Func and Action delegates.
