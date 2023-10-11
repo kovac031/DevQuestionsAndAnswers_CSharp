@@ -662,6 +662,10 @@ var goodCustomersList = goodCustomers.ToList(); // gets some amount of customers
 ```
 
 ## 37. describe the concept of lazy loading.
+The approach in designing your code so that required data is loaded as necessary instead of in advance. E.g. not loading an entire list first and then narrowing it down.
+
+There is also the Lazy<T> "wrapper" which makes it so that a method is not executed in normal order but only when the variable (of an instanced class) is first used elsewhere in code. (I guess something like async, did not encounter this yet).
+
 ## 38. explain the concept of deferred execution.
 ## 39. what is the purpose of the C# yield statement?
 ## 40. explain lambda expressions.
