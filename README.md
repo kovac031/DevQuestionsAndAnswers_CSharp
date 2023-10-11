@@ -667,6 +667,8 @@ The approach in designing your code so that required data is loaded as necessary
 There is also the Lazy<T> "wrapper" which makes it so that a method is not executed in normal order but only when the variable (of an instanced class) is first used elsewhere in code. (I guess something like async, did not encounter this yet).
 
 ## 38. explain the concept of deferred execution.
+Execution of code later, like with .ToList or .First with IQueryable (see #36)
+
 ## 39. what is the purpose of the C# yield statement?
 ## 40. explain lambda expressions.
 ## 41. what is type inference?
