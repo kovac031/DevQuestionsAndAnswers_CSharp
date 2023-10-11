@@ -675,6 +675,25 @@ Using yield return with loops we return results one by one on each iteration, as
 https://www.youtube.com/watch?v=uv74SZ5MX5Q
 
 ## 40. explain lambda expressions.
+=> is the lambda operator, reads as "goes to" or "by". Lambda expression is way of writing concise code.
+
+```C#
+void MyMathMethod()
+{
+    int Add(int a, int b) => a + b;
+    int result = Add(3, 4); // 3 + 4 = 7
+}
+```
+```C#
+List<int> numbers = new List<int> { 1, 2, 3, 4, 5 };
+List<int> evenNumbers = numbers.Where(x => x % 2 == 0);
+
+```
+```C#
+List<int> numbers = new List<int> { 1, 2, 3, 4, 5 };
+numbers.RemoveAll(x => x % 2 == 0); // Removes even numbers
+```
+
 ## 41. what is type inference?
 ## 42. explain Func and Action delegates.
 ## 43. what is Entity Framework?
