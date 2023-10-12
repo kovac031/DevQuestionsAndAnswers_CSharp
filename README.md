@@ -743,6 +743,16 @@ public class MyDbContext : DbContext
 ```
 
 ## 45. explain asynchronous method calls with async/await pattern.
+Asynchronous refers to a style of executing tasks where a program doesn't need to wait for one task to complete before moving on to the next one.
+
+```C#
+async Task<int> CalculateAsync()
+{
+    int result = await SomeAsyncOperation();
+    return result;
+}
+```
+
 ## 46. what is Dependency Injection. How and why is it used?
 ## 47. what types of Dependency Injection exist in C#?
 ## 48. what DI scopes are available with the container you used? Explain the scenarios for usage of
