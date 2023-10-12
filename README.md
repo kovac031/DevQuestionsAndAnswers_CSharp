@@ -722,6 +722,26 @@ Entity Framework (EF) is an Object-Relational Mapping (ORM) framework developed 
 Object-Relational Mapping (ORM) is a programming technique and framework that allows developers to work with databases using object-oriented concepts. It bridges the gap between the relational databases, which store data in tables, and object-oriented programming languages, which use objects to represent data and behavior.
 
 ## 44. what are Context and Entity classes in EF?
+The Context class, derived from DbContext in EF, represents the database session and is responsible for the interaction between your application and the database.
+
+Entity classes contain properties that map to the columns in the database table.
+
+```C#
+// Entity class representing a "Product" table
+public class Product
+{
+    public int ProductId { get; set; }
+    public string Name { get; set; }
+    public decimal Price { get; set; }
+}
+
+// Context class representing the database session
+public class MyDbContext : DbContext
+{
+    public DbSet<Product> Products { get; set; }
+}
+```
+
 ## 45. explain asynchronous method calls with async/await pattern.
 ## 46. what is Dependency Injection. How and why is it used?
 ## 47. what types of Dependency Injection exist in C#?
