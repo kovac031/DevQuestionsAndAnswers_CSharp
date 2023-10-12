@@ -695,6 +695,8 @@ numbers.RemoveAll(x => x % 2 == 0); // Removes even numbers
 ```
 
 ## 41. what is type inference?
+The ability to not have to specifically declare each data type, it gets infered with var.
+
 ## 42. explain Func and Action delegates.
 ## 43. what is Entity Framework?
 ## 44. what are Context and Entity classes in EF?
