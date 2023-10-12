@@ -774,7 +774,43 @@ public class OrderService
 > If we need to change database related code, we'll do it in IDatabase and not in PlaceOrder in OrderService.
 
 ## 47. what types of Dependency Injection exist in C#?
+Constructor injection:
+```C#
+public class OrderService
+{
+    private readonly IDatabase _database;
 
+    public OrderService(IDatabase database)
+    {
+        _database = database;
+    }
+}
+```
+
+Property injection:
+```C#
+public class OrderService
+{
+    public IDatabase Database { get; set; }
+
+    public void PlaceOrder(Order order)
+    {
+         ...
+        Database.Save(order);
+    }
+}
+```
+
+Method injection:
+```C#
+public class OrderService
+{
+    public void ProcessOrder(IDatabase database, Order order)
+    {
+        database.Save(order);
+    }
+}
+```
 
 ## 48. what DI scopes are available with the container you used? Explain the scenarios for usage of
  each of these scopes.
