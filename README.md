@@ -754,7 +754,28 @@ async Task<int> CalculateAsync()
 ```
 
 ## 46. what is Dependency Injection. How and why is it used?
+Passing the classes that your class depends on as interfaces via the constructor rather than having your class create those dependencies.
+
+```C#
+public class OrderService
+{
+    private readonly IDatabase _database;
+
+    public OrderService(IDatabase database)
+    {
+        _database = database;
+    }
+    public void PlaceOrder(Order order)
+    {
+        _database.Save(order);
+    }
+}
+```
+> If we need to change database related code, we'll do it in IDatabase and not in PlaceOrder in OrderService.
+
 ## 47. what types of Dependency Injection exist in C#?
+
+
 ## 48. what DI scopes are available with the container you used? Explain the scenarios for usage of
  each of these scopes.
 ## 49. what are software patterns?
