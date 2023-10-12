@@ -812,8 +812,8 @@ public class OrderService
 }
 ```
 
-## 48. what DI scopes are available with the container you used? Explain the scenarios for usage of
- each of these scopes.
+## 48. what DI scopes are available with the container you used? Explain the scenarios for usage of each of these scopes.
+ 
 ## 49. what are software patterns?
 ## 50. explain several design patters (structural, creational, behavioral, ...). For example, singleton,
 factory, adapter, repository, etc. Recommended resource for more info:
