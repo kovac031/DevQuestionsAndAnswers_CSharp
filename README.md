@@ -717,6 +717,10 @@ static void Square(double nmb) => Console.WriteLine(Math.Pow(nmb, 2));
 ```
 
 ## 43. what is Entity Framework?
+Entity Framework (EF) is an Object-Relational Mapping (ORM) framework developed by Microsoft.
+
+Object-Relational Mapping (ORM) is a programming technique and framework that allows developers to work with databases using object-oriented concepts. It bridges the gap between the relational databases, which store data in tables, and object-oriented programming languages, which use objects to represent data and behavior.
+
 ## 44. what are Context and Entity classes in EF?
 ## 45. explain asynchronous method calls with async/await pattern.
 ## 46. what is Dependency Injection. How and why is it used?
