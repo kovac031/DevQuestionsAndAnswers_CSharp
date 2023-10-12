@@ -698,6 +698,24 @@ numbers.RemoveAll(x => x % 2 == 0); // Removes even numbers
 The ability to not have to specifically declare each data type, it gets infered with var.
 
 ## 42. explain Func and Action delegates.
+Delegate types. Func is a generic delegate. Action delegate does not return a value (void type).
+
+```C#
+static void Main(string[] args)
+{
+   Func<double,double> square = Square; // takes double as input, outputs double, square variable calls Square method
+}
+static double Square(double nmb) => Math.Pow(nmb, 2);
+```
+```C#
+static void Main(string[] args)
+{
+   Action<double> square = Square;
+   square(4);
+}
+static void Square(double nmb) => Console.WriteLine(Math.Pow(nmb, 2));
+```
+
 ## 43. what is Entity Framework?
 ## 44. what are Context and Entity classes in EF?
 ## 45. explain asynchronous method calls with async/await pattern.
