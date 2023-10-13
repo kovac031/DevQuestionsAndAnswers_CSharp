@@ -813,7 +813,32 @@ public class OrderService
 ```
 
 ## 48. what DI scopes are available with the container you used? Explain the scenarios for usage of each of these scopes.
- 
+DI containers I used:
+- Autofac in .NET EF 4.7.2 [(1)](https://github.com/kovac031/PlayPalMini-MVC/blob/main/PlayPalMini/PlayPalMini.MVC/App_Start/DIContainer.cs), [(2)](https://github.com/kovac031/PlayPalMini-WebAPI/blob/main/PlayPalMini/PlayPalMini.WebAPI/App_Start/DependencyInjectionConfig.cs)
+- ASP.NET Core's built-in DI container [(1)](https://github.com/kovac031/AutoMapper-Core/blob/main/ProjectMVC/MVC/Program.cs), [(2)](https://github.com/kovac031/AutoMapper-Core/blob/main/ProjectWebAPI/WebAPI/Program.cs)
+
+Transient scope - instances are created each time they are called.
+> used when I don't want data to persist during app usage
+
+Scoped - instances are created once per http request.
+> used when I want some data to persist, session data and such
+
+Singleton scope - instances are created the first time they are requested and persist while the app is running.
+> used for things that need to persist and stay the same, some settings or preferences
+
+```C#
+builder.Services.AddScoped<IService, StudentService>();
+builder.Services.AddScoped<IRepository, StudentRepository>();
+```
+```C#
+builder.Services.AddTransient<IService, StudentService>();
+builder.Services.AddTransient<IRepository, StudentRepository>();
+```
+```C#
+builder.Services.AddSingleton<IService, StudentService>();
+builder.Services.AddSingleton<IRepository, StudentRepository>();
+```
+
 ## 49. what are software patterns?
 ## 50. explain several design patters (structural, creational, behavioral, ...). For example, singleton,
 factory, adapter, repository, etc. Recommended resource for more info:
