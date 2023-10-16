@@ -849,7 +849,15 @@ Creational design patterns:
 > deals with Object Creation and Initialization
 
 - Singleton
+  
+Instead of creating new objects when we call a class (instantiate with "new"), we instead set it up so that the same object is used (we do ClassName.MethodName). [video](https://www.youtube.com/watch?v=YGGg9ecy0K4&list=PL6n9fhu94yhUbctIoxoVTrklN3LMwTCmd&index=2)
+
+If multiple threads, it may violate singleton because additional instances may be created on different threads, [solution](https://www.youtube.com/watch?v=QWrcOmLWi_Q&list=PL6n9fhu94yhUbctIoxoVTrklN3LMwTCmd&index=4).
+
 - Factory
+
+
+  
 - Builder
 - Prototype
 - Fluent Interface
