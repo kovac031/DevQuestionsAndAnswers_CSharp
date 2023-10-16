@@ -840,9 +840,56 @@ builder.Services.AddSingleton<IRepository, StudentRepository>();
 ```
 
 ## 49. what are software patterns?
-## 50. explain several design patters (structural, creational, behavioral, ...). For example, singleton,
-factory, adapter, repository, etc. Recommended resource for more info:
-https://dotnettutorials.net/course/dot-net-design-patterns/
+Design patterns are typical solutions to commonly occurring problems in software design. They are like pre-made blueprints that you can customize to solve a recurring design problem in your code.
+
+## 50. explain several design patters (structural, creational, behavioral, ...). For example, singleton, factory, adapter, repository, etc. 
+> Recommended resource for more info: https://dotnettutorials.net/course/dot-net-design-patterns/
+
+Creational design patterns:
+> deals with Object Creation and Initialization
+
+- Singleton
+- Factory
+- Builder
+- Prototype
+- Fluent Interface
+- Factory Method
+- Abstract Factory
+
+Structural Design Pattern:
+> used to Manage the Structure of Classes and Interfaces and the Relationship Between the Classes and Interfaces
+
+- Adapter
+- Facade
+- Decorator
+- Composite
+- Proxy
+- Flyweight
+- Bridge
+
+Behavioral Design Patterns:
+> deal with the Communication Between Classes and Objects
+
+- Chain of Responsibility
+- Command
+- Observer
+- Iterator
+- State
+- TemplateMethod
+- Visitor
+- Strategy
+- Mediator
+- Memento
+- Interpreter
+
+Architectural Patterns:
+> deal with the overall architecture and organization of an application
+
+- Repository
+- Clean
+- MVC
+
+
 ## 51. what is unit testing?
 ## 52. what is mocking? What is its purpose?
 
