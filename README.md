@@ -653,7 +653,8 @@ Both are for handling collections, but IEnumerable executes immediately and stor
 IEnumerable<Customer> collection = db.GetCustomersAsEnumerable(); // gets all customers
 
 var goodCustomers = collection.Where(c => c.Revenue > 2500); // narrows it to some amount of goodCustomers
-
+```
+```C#
 IQueryable<Customer> query = db.GetCustomersAsQueryable(); // gets no customer
 
 goodCustomers = query.Where(c => c.Revenue > 2500);) // again, no customers
@@ -854,15 +855,22 @@ Instead of creating new objects when we call a class (instantiate with "new"), w
 
 If multiple threads, it may violate singleton because additional instances may be created on different threads, [solution](https://www.youtube.com/watch?v=QWrcOmLWi_Q&list=PL6n9fhu94yhUbctIoxoVTrklN3LMwTCmd&index=4).
 
-- Factory
+- Factory Method
 
+A factory is an object which can create other objects. 
 
-  
+Factory method design pattern is about creating objects without exposing the creation logic to the client. Subclasses choose which class to instantiate.
+
+> E.g. client is selecting some product for whatever reason ([factory is making boats or trucks](https://refactoring.guru/design-patterns/factory-method)) - instead of having all logic be inside a switch loop or similar and have it duplicated for trucks and boats, we place the logic in a different class, a single "factory", and simply call a method that accept the client's choice as parameter.
+
+- Abstract Factory
+Like Factory method pattern, but instead of creating a single object, it creates multiple objects.
+
 - Builder
 - Prototype
 - Fluent Interface
-- Factory Method
-- Abstract Factory
+
+
 
 Structural Design Pattern:
 > used to Manage the Structure of Classes and Interfaces and the Relationship Between the Classes and Interfaces
