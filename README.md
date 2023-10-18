@@ -927,6 +927,10 @@ A field is an element in which one piece of information is stored.
 The primary key in SQL is a single, or a group of fields or columns that can uniquely identify a row in a table.
 
 ## 3. What is natural vs surrogate primary key?
+Natural primary keys are unique identifiers that we already would have included in our table, like OIB, driver's card licence number.
+
+Surrogate primary keys are those we include in addition to data we'd normally collect, like Guid or Int (if we know they wont repeat), just so we have a unique identifier for each row.
+
 ## 4. Can primary key be defined via multiple columns?
 ## 5. Describe the concept of database relation.
 ## 6. What is a foreign key?
