@@ -946,6 +946,18 @@ PRIMARY KEY (OrderId, ProductId)
 ```
 
 ## 5. Describe the concept of database relation.
+Databse relation refers to how tables are related to each other, specifying the associations between records in different tables. 
+
+One-to-One: 
+> Each record in one table is associated with exactly one record in another table, and vice versa.
+
+One-to-Many: 
+>Each record in one table can be associated with one or more records in another table, but each record in the second table is associated with only one record in the first table.
+
+Many-to-Many: 
+>Each record in one table can be associated with multiple records in another table, and vice versa, creating a many-to-many relationship. This type of relationship is often implemented using a junction table.
+
+
 ## 6. What is a foreign key?
 ## 7. Can foreign key be nullable if primary key is not?
 ## 8. What is a purpose of a JOIN keyword? What types of JOINs do you know?
