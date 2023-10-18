@@ -932,6 +932,19 @@ Natural primary keys are unique identifiers that we already would have included 
 Surrogate primary keys are those we include in addition to data we'd normally collect, like Guid or Int (if we know they wont repeat), just so we have a unique identifier for each row.
 
 ## 4. Can primary key be defined via multiple columns?
+Yes.
+
+From my [practie repository](https://github.com/kovac031/SQL-practice/blob/main/createOtherTable-ForeignKey-InsertIntoFancy.sql)
+```SQL
+CREATE TABLE TheOrdersTheProducts (
+OrderId uniqueidentifier not null,
+ProductId uniqueidentifier not null,
+CONSTRAINT FK_TheOrdersTheProducts_TheOrders_OrderId FOREIGN KEY (OrderId) REFERENCES TheOrders(Id),
+CONSTRAINT FK_TheOrdersTheProducts_TheProducts_ProductId FOREIGN KEY (ProductId) REFERENCES TheProducts(Id),
+PRIMARY KEY (OrderId, ProductId)
+);
+```
+
 ## 5. Describe the concept of database relation.
 ## 6. What is a foreign key?
 ## 7. Can foreign key be nullable if primary key is not?
