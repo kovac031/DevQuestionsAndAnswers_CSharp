@@ -973,7 +973,7 @@ SELECT ProductID, ProductName, CategoryName
 FROM Products
 INNER JOIN Categories ON Products.CategoryID = Categories.CategoryID;
 ```
-https://github.com/kovac031/TermsAndDefinitionsAndExamples/blob/main/pics/img_inner_join.png
+<img src="https://github.com/kovac031/TermsAndDefinitionsAndExamples/blob/main/pics/img_inner_join.png">
 
 The LEFT JOIN keyword returns all records from the left table (table1), and the matching records from the right table (table2). The result is 0 records from the right side, if there is no match.
 ```SQL
@@ -982,7 +982,7 @@ FROM table1
 LEFT JOIN table2
 ON table1.column_name = table2.column_name;
 ```
-https://github.com/kovac031/TermsAndDefinitionsAndExamples/blob/main/pics/img_left_join.png
+<img src="https://github.com/kovac031/TermsAndDefinitionsAndExamples/blob/main/pics/img_left_join.png">
 
 The RIGHT JOIN keyword returns all records from the right table (table2), and the matching records from the left table (table1). The result is 0 records from the left side, if there is no match.
 ```SQL
@@ -991,7 +991,7 @@ FROM table1
 RIGHT JOIN table2
 ON table1.column_name = table2.column_name;
 ```
-https://github.com/kovac031/TermsAndDefinitionsAndExamples/blob/main/pics/img_right_join.png
+<img src="https://github.com/kovac031/TermsAndDefinitionsAndExamples/blob/main/pics/img_right_join.png">
 
 The FULL OUTER JOIN keyword returns all records when there is a match in left (table1) or right (table2) table records.
 ```SQL
@@ -1001,10 +1001,13 @@ FULL OUTER JOIN table2
 ON table1.column_name = table2.column_name
 WHERE condition; 
 ```
-https://github.com/kovac031/TermsAndDefinitionsAndExamples/blob/main/pics/img_full_outer_join.png
-
+<img src="https://github.com/kovac031/TermsAndDefinitionsAndExamples/blob/main/pics/img_full_outer_join.png">
 
 ## 9. What is a temp table / table variable and when would you use it?
+[Temporary tables](https://www.c-sharpcorner.com/UploadFile/rohatash/temporary-tables-in-sql-server-2012/) are created for temporary uses (doing some calculations to produce data that we don't want to permanently store), is dropped after session is over.
+
+[Table variable](https://www.c-sharpcorner.com/UploadFile/75a48f/table-variable-in-sql-server/) is used similarly, except it is a variable stored in memory instead of the database, and does not exist outside of the query it is supposed to execute.
+
 ## 10. What is an index and what is its purpose?
 ## 11. What is a check constraint?
 ## 12. Explain the difference between a stored procedure and a function.
