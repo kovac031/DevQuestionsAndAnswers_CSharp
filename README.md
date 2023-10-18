@@ -959,7 +959,11 @@ Many-to-Many:
 
 
 ## 6. What is a foreign key?
+FK creates a relationship between tables by referencing a primary key in another table.
+
 ## 7. Can foreign key be nullable if primary key is not?
+No.
+
 ## 8. What is a purpose of a JOIN keyword? What types of JOINs do you know?
 ## 9. What is a temp table / table variable and when would you use it?
 ## 10. What is an index and what is its purpose?
