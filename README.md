@@ -919,6 +919,10 @@ The purpose of mocking is to isolate the code being tested by replacing its depe
 # Basic RDBMS and SQL questions:
 
 ## 1. What is a difference between a column and a field?
+A column is a collection of cells alligned vertically in a table. 
+
+A field is an element in which one piece of information is stored.
+
 ## 2. What is primary key?
 ## 3. What is natural vs surrogate primary key?
 ## 4. Can primary key be defined via multiple columns?
