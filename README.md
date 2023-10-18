@@ -1009,6 +1009,10 @@ WHERE condition;
 [Table variable](https://www.c-sharpcorner.com/UploadFile/75a48f/table-variable-in-sql-server/) is used similarly, except it is a variable stored in memory instead of the database, and does not exist outside of the query it is supposed to execute.
 
 ## 10. What is an index and what is its purpose?
+Index is a data structure which references values found in table columns. They are just used to speed up searches/queries. [video](https://www.youtube.com/watch?v=fsG1XaZEa78)
+
+https://www.w3schools.com/sql/sql_ref_index.asp
+
 ## 11. What is a check constraint?
 ## 12. Explain the difference between a stored procedure and a function.
 ## 13. What is a query plan?
