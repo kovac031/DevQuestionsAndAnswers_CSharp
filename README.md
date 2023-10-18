@@ -912,6 +912,9 @@ Testing individual units of code, such as methods/functions, to see if they prod
 In contrast, there is integration testing which tests how multiple components work together.
 
 ## 52. what is mocking? What is its purpose?
+Mocking is a technique used in unit testing. It involves creating fake or "mock" objects to simulate the behavior of real components or dependencies. 
+
+The purpose of mocking is to isolate the code being tested by replacing its dependencies with these mock objects. This helps in testing the code in isolation and ensures that the tests focus solely on the unit of code under examination. (E.g. when testing controller methods, we don't want to ACTUALLY call the methods in the service layer, so we mock that)
 
 # Basic RDBMS and SQL questions:
 
