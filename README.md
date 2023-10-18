@@ -965,6 +965,45 @@ FK creates a relationship between tables by referencing a primary key in another
 No.
 
 ## 8. What is a purpose of a JOIN keyword? What types of JOINs do you know?
+The JOIN keyword in SQL is used to combine rows from two or more tables based on a related column between them. Its primary purpose is to retrieve data from multiple tables in a single query by matching records based on a specified condition.
+
+The INNER JOIN keyword selects records that have matching values in both tables.
+```SQL
+SELECT ProductID, ProductName, CategoryName
+FROM Products
+INNER JOIN Categories ON Products.CategoryID = Categories.CategoryID;
+```
+https://github.com/kovac031/TermsAndDefinitionsAndExamples/blob/main/pics/img_inner_join.png
+
+The LEFT JOIN keyword returns all records from the left table (table1), and the matching records from the right table (table2). The result is 0 records from the right side, if there is no match.
+```SQL
+SELECT column_name(s)
+FROM table1
+LEFT JOIN table2
+ON table1.column_name = table2.column_name;
+```
+https://github.com/kovac031/TermsAndDefinitionsAndExamples/blob/main/pics/img_left_join.png
+
+The RIGHT JOIN keyword returns all records from the right table (table2), and the matching records from the left table (table1). The result is 0 records from the left side, if there is no match.
+```SQL
+SELECT column_name(s)
+FROM table1
+RIGHT JOIN table2
+ON table1.column_name = table2.column_name;
+```
+https://github.com/kovac031/TermsAndDefinitionsAndExamples/blob/main/pics/img_right_join.png
+
+The FULL OUTER JOIN keyword returns all records when there is a match in left (table1) or right (table2) table records.
+```SQL
+SELECT column_name(s)
+FROM table1
+FULL OUTER JOIN table2
+ON table1.column_name = table2.column_name
+WHERE condition; 
+```
+https://github.com/kovac031/TermsAndDefinitionsAndExamples/blob/main/pics/img_full_outer_join.png
+
+
 ## 9. What is a temp table / table variable and when would you use it?
 ## 10. What is an index and what is its purpose?
 ## 11. What is a check constraint?
