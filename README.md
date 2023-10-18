@@ -907,6 +907,10 @@ Architectural Patterns:
 
 
 ## 51. what is unit testing?
+Testing individual units of code, such as methods/functions, to see if they produce the expected result in isolation.
+
+In contrast, there is integration testing which tests how multiple components work together.
+
 ## 52. what is mocking? What is its purpose?
 
 # Basic RDBMS and SQL questions:
