@@ -1074,7 +1074,21 @@ DECLARE @EndDate DATE = '2023-12-31'
 ```
 
 ## 15. What is sql transaction?
+An SQL transaction is a logical unit of work that groups one or more SQL statements into a single, indivisible, and atomic operation. The primary purpose of transactions is to ensure the consistency, integrity, and reliability of a database when multiple operations need to be executed together as a single, coherent task.
 
+```SQL
+BEGIN TRANSACTION; -- Start a new transaction
+
+-- Execute SQL statements within the transaction
+UPDATE Account SET Balance = Balance - 100 WHERE AccountNumber = '12345';
+INSERT INTO TransactionLog (AccountNumber, Amount) VALUES ('12345', -100);
+
+-- Commit the transaction
+COMMIT;
+
+-- Or, if there's a problem, roll back the transaction
+-- ROLLBACK;
+```
 
 
 # Basic Web development topics:
