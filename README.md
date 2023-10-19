@@ -1053,8 +1053,18 @@ FROM Products;
 ```
 
 ## 13. What is a query plan?
+A query plan, also known as an execution plan, is a detailed description of how a database management system (DBMS) intends to execute a specific SQL query.
+
+Query plans are critical for optimizing the performance of database queries.
+
+https://www.youtube.com/watch?v=VcA92fe1Erw
+
 ## 14. What is parametrized query?
+
+
 ## 15. What is sql transaction?
+
+
 
 # Basic Web development topics:
 
