@@ -1060,7 +1060,18 @@ Query plans are critical for optimizing the performance of database queries.
 https://www.youtube.com/watch?v=VcA92fe1Erw
 
 ## 14. What is parametrized query?
+Parameterized query, also known as a prepared statement, is a type of SQL query in which placeholders are used for input values, and those values are provided separately.
+```SQL
+SELECT * FROM Customers WHERE CustomerName = ? AND Country = ?
+```
+> CustomerName and Country will be assigned a value elsewhere in code
 
+```SQL
+SELECT * FROM Orders WHERE OrderDate >= @StartDate AND OrderDate <= @EndDate
+...
+DECLARE @StartDate DATE = '2023-01-01'
+DECLARE @EndDate DATE = '2023-12-31'
+```
 
 ## 15. What is sql transaction?
 
