@@ -63,6 +63,9 @@ Person person = new Person();
 person.SetName("Ivan");
 person.GetName();
 ```
+
+Kroz druge izvore - to sto mozemo jednostavno pozvat metodu koja se nalazi negdje drugdje, mozemo si predociti kao da u toj jednoj liniji/komandi je enkapsuliran citav blok koda koji nesto radi
+
 ### Inheritance
 
 Sets up parent-child class relationship. Child class inherits/implements all parameters of the parent class.
@@ -1014,7 +1017,41 @@ Index is a data structure which references values found in table columns. They a
 https://www.w3schools.com/sql/sql_ref_index.asp
 
 ## 11. What is a check constraint?
+The CHECK constraint is used to limit the value range that can be placed in a column.
+
+https://www.w3schools.com/sql/sql_check.asp
+
 ## 12. Explain the difference between a stored procedure and a function.
+Both are about preparing queries for future use, and so that they can be reused.
+
+A stored procedure can contain various queries and is versatile in how it can be used.
+```SQL
+CREATE PROCEDURE SelectAllCustomers
+AS
+SELECT * FROM Customers
+GO;
+```
+```SQL
+EXEC SelectAllCustomers;
+```
+https://www.w3schools.com/sql/sql_stored_procedures.asp
+
+Functions are used to return a value, their purpose is just to do calculations.
+```SQL
+CREATE FUNCTION CalculateTotalPrice (@UnitPrice DECIMAL(10, 2), @Quantity INT)
+RETURNS DECIMAL(10, 2)
+AS
+BEGIN
+    DECLARE @TotalPrice DECIMAL(10, 2)
+    SET @TotalPrice = @UnitPrice * @Quantity
+    RETURN @TotalPrice
+END
+```
+```SQL
+SELECT ProductName, UnitPrice, Quantity, dbo.CalculateTotalPrice(UnitPrice, Quantity) AS TotalPrice
+FROM Products;
+```
+
 ## 13. What is a query plan?
 ## 14. What is parametrized query?
 ## 15. What is sql transaction?
