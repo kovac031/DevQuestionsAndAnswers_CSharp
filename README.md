@@ -1240,6 +1240,39 @@ HTML Helpers are a set of methods in ASP.NET MVC that provide a way to generate 
 ```
 
 ## 10. what are layouts and what is their purpose?
+Layouts in ASP.NET MVC are a feature that allows you to define a common structure for your web application's pages. They serve as a template or a master page that provides the overall layout and structure that is consistent across multiple views or pages.
+```HTML+Razor
+<!DOCTYPE html>
+<html>
+<head>
+    <title>@ViewBag.Title</title>
+    <!-- Common CSS and JavaScript references go here -->
+</head>
+<body>
+    <header>
+        <!-- Header content goes here -->
+    </header>
+    <nav>
+        <!-- Navigation menu goes here -->
+    </nav>
+    <div class="content">
+        @RenderBody() <!-- Placeholder for view-specific content -->
+    </div>
+    <footer>
+        <!-- Footer content goes here -->
+    </footer>
+</body>
+</html>
+```
+```HTML+Razor
+@{
+    Layout = "_Layout"; // Specifies the layout to use for this view
+}
+<!-- Content specific to this view -->
+<h1>Welcome to our website</h1>
+<p>This is the home page content.</p>
+```
+
 ## 11. what is Razor? How are code blocks defined in Razor?
 ## 12. how is validation implemented in ASP.NET MVC?
 ## 13. name and explain different web application architectures. Good resource:
