@@ -1094,6 +1094,20 @@ COMMIT;
 # Basic Web development topics:
 
 ## 1. explain the concept of MVC.
+MVC stands for Model-View-Controller, a design pattern commonly used in web development.
+
+- Model:
+
+This is where your data and business logic reside. It represents your application's data and how it should be processed.
+
+- View: 
+
+This is the part that the user sees and interacts with. It's responsible for presenting data to the user in a user-friendly way.
+
+- Controller: 
+
+This acts as an intermediary between the Model and View. It receives user input, processes it, interacts with the Model to get the required data, and then updates the View to show the results to the user
+
 ## 2. name several different types of results returned by action methods.
 ## 3. What is the difference between ViewResult and ActionResult?
 ## 4. what are filters in MVC? Name some of them.
