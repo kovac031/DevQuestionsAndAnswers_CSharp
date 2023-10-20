@@ -1230,6 +1230,8 @@ A View represents a complete web page or a significant portion of it. It is typi
 A Partial View is designed to represent a smaller, reusable component of a page. It is a way to break down complex pages into smaller, manageable sections.
  
 ## 8. what is ViewModel in MVC?
+ViewModel is the model class containing all the data required by a specific View.
+
 ## 9. what are HTML helpers?
 ## 10. what are layouts and what is their purpose?
 ## 11. what is Razor? How are code blocks defined in Razor?
