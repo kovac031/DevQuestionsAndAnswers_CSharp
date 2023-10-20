@@ -1176,6 +1176,28 @@ https://www.tutorialsteacher.com/mvc/filters-in-asp.net-mvc
 Custom filters can be made.
 
 ## 5. how routing works in MVC? What types of routing exist?
+Routing is a pattern matching system. Routing maps an incoming request (from the browser) to particular resources (controller & action method).
+
+Routing parses the request in route configuration. Then, it matches the request in the route table to ensure which controller and which action will be processed.
+
+Conventional routing (in RouteConfig.cs)
+```C#
+routes.MapRoute(
+    name: "Default",
+    url: "{controller}/{action}/{id}",
+    defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+);
+```
+Attribute routing
+```C#
+[Route("products/show/{id}")]
+public ActionResult Show(int id)
+{
+    // Action logic
+}
+```
+
+
 ## 6. what are the differences between TempData, ViewData and ViewBag?
 ## 7. explain the difference between View and Partial View.
 ## 8. what is ViewModel in MVC?
