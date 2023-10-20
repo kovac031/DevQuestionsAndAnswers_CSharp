@@ -1197,8 +1197,33 @@ public ActionResult Show(int id)
 }
 ```
 
-
 ## 6. what are the differences between TempData, ViewData and ViewBag?
+They handle temporary data.
+
+TempData for persisting data from action to action. ViewData from controller to view.
+
+ViewBag is a collection of ViewData and uses dynamic keyword.
+
+```C#
+public class MyController : Controller
+{
+    public IActionResult Index()
+    {
+        ViewBag.MessageInViewBag = "Hello from ViewBag!";
+        ViewData["MessageInViewData"] = "Hello from ViewData!";
+        TempData["MessageInTempData"] = "Hello from TempData";
+        return View();
+    }
+}
+```
+```HTML+Razor
+<body>   
+    <p>@ViewBag.MessageInViewBag</p>
+    <p>@ViewData["MessageInViewData"]</p>
+    <p>@TempData["MessageInTempData"]</p>
+</body>
+```
+
 ## 7. explain the difference between View and Partial View.
 ## 8. what is ViewModel in MVC?
 ## 9. what are HTML helpers?
