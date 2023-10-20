@@ -1109,6 +1109,60 @@ This is the part that the user sees and interacts with. It's responsible for pre
 This acts as an intermediary between the Model and View. It receives user input, processes it, interacts with the Model to get the required data, and then updates the View to show the results to the user
 
 ## 2. name several different types of results returned by action methods.
+View, PartialView, Json, Redirect, RedirectToRoute, Content, File, Empty
+
+```C#
+public IActionResult Index()
+{
+    return View(); // Renders the "Index" view.
+}
+```
+```C#
+public IActionResult GetPartialView()
+{
+    return PartialView("_PartialView"); // Renders the "_PartialView" partial view.
+}
+```
+```C#
+public IActionResult GetJsonData()
+{
+    var data = new { Name = "John", Age = 30 };
+    return Json(data);
+}
+```
+```C#
+public IActionResult RedirectExample()
+{
+    return Redirect("https://www.example.com");
+}
+```
+```C#
+public IActionResult RedirectToCustomRoute()
+{
+    return RedirectToRoute("CustomRouteName");
+}
+```
+```C#
+public IActionResult GetText()
+{
+    return Content("This is plain text content.", "text/plain");
+}
+```
+```C#
+public IActionResult DownloadFile()
+{
+    byte[] fileBytes = GetFileBytes(); // Get your file data here.
+    string fileName = "example.pdf";
+    return File(fileBytes, "application/pdf", fileName);
+}
+```
+```C#
+public IActionResult NoContent()
+{
+    return new EmptyResult(); // Represents no content returned.
+}
+```
+
 ## 3. What is the difference between ViewResult and ActionResult?
 ## 4. what are filters in MVC? Name some of them.
 ## 5. how routing works in MVC? What types of routing exist?
