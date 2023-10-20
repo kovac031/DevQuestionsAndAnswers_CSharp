@@ -1164,6 +1164,8 @@ public IActionResult NoContent()
 ```
 
 ## 3. What is the difference between ViewResult and ActionResult?
+ViewResult is a specific type of ActionResult used when you want to return a view, while ActionResult is a more general type that can represent a variety of result types.
+
 ## 4. what are filters in MVC? Name some of them.
 ## 5. how routing works in MVC? What types of routing exist?
 ## 6. what are the differences between TempData, ViewData and ViewBag?
