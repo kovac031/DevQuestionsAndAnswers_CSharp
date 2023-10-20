@@ -1167,6 +1167,14 @@ public IActionResult NoContent()
 ViewResult is a specific type of ActionResult used when you want to return a view, while ActionResult is a more general type that can represent a variety of result types.
 
 ## 4. what are filters in MVC? Name some of them.
+Filters are specific types of attributes that are used to perform pre-processing and post-processing logic around action methods.
+
+Authorization filters like [Authorize], Action filters, Result filters and Exception filters like [HandleError].
+
+https://www.tutorialsteacher.com/mvc/filters-in-asp.net-mvc
+
+Custom filters can be made.
+
 ## 5. how routing works in MVC? What types of routing exist?
 ## 6. what are the differences between TempData, ViewData and ViewBag?
 ## 7. explain the difference between View and Partial View.
