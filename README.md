@@ -1225,6 +1225,10 @@ public class MyController : Controller
 ```
 
 ## 7. explain the difference between View and Partial View.
+A View represents a complete web page or a significant portion of it. It is typically used to render the main content of a page.
+
+A Partial View is designed to represent a smaller, reusable component of a page. It is a way to break down complex pages into smaller, manageable sections.
+ 
 ## 8. what is ViewModel in MVC?
 ## 9. what are HTML helpers?
 ## 10. what are layouts and what is their purpose?
