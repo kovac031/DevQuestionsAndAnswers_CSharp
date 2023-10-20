@@ -1233,6 +1233,12 @@ A Partial View is designed to represent a smaller, reusable component of a page.
 ViewModel is the model class containing all the data required by a specific View.
 
 ## 9. what are HTML helpers?
+HTML Helpers are a set of methods in ASP.NET MVC that provide a way to generate HTML markup in views using C# or VB.NET code. They make it easier to create HTML elements and controls in your views.
+```HTML+Razor
+@Html.ActionLink("Click Me", "About", "Home") // uses html helper
+<a href="@Url.Action("About", "Home")">Click Me</a> // no html helper
+```
+
 ## 10. what are layouts and what is their purpose?
 ## 11. what is Razor? How are code blocks defined in Razor?
 ## 12. how is validation implemented in ASP.NET MVC?
