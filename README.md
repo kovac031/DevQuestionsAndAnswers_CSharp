@@ -1284,6 +1284,32 @@ To define a codeblock use @{ ... } syntax
 ```
 
 ## 12. how is validation implemented in ASP.NET MVC?
+ASP.NET MVC includes built-in attribute classes in the System.ComponentModel.DataAnnotations namespace. We used attributes to validate data.
+
+```C#
+public class Person
+{
+    [Required]
+    [StringLength(50)]
+    public string Name { get; set; }
+} // e.g. sign up form will demand a Name input, which will be limited to 50 characters max
+```
+
+In addition we can use model validation checks with ModelState.IsValid
+```C#
+public ActionResult Create(Person person)
+{
+    if (ModelState.IsValid)
+    {
+        // Data is valid, proceed.
+    }
+    else
+    {
+        // something else
+    }
+}
+```
+
 ## 13. name and explain different web application architectures. Good resource:
 https://docs.microsoft.com/en-us/dotnet/architecture/modern-web-apps-azure/commonweb-
 application-architectures
