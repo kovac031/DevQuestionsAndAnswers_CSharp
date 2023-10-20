@@ -1274,6 +1274,15 @@ Layouts in ASP.NET MVC are a feature that allows you to define a common structur
 ```
 
 ## 11. what is Razor? How are code blocks defined in Razor?
+Razor is a markup syntax used in ASP.NET MVC (and later in ASP.NET Core) to embed server-side code within HTML markup. It provides a clean and concise way to create dynamic web pages by mixing C# or VB.NET code with HTML.
+
+To define a codeblock use @{ ... } syntax
+```HTML+Razor
+@{
+    var message = "Hello, Razor!";
+}
+```
+
 ## 12. how is validation implemented in ASP.NET MVC?
 ## 13. name and explain different web application architectures. Good resource:
 https://docs.microsoft.com/en-us/dotnet/architecture/modern-web-apps-azure/commonweb-
