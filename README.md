@@ -1311,5 +1311,26 @@ public ActionResult Create(Person person)
 ```
 
 ## 13. name and explain different web application architectures. Good resource:
-https://docs.microsoft.com/en-us/dotnet/architecture/modern-web-apps-azure/commonweb-
-application-architectures
+https://docs.microsoft.com/en-us/dotnet/architecture/modern-web-apps-azure/commonweb-application-architectures
+
+Monolithic
+> All the components, such as the user interface, business logic, and data access, are tightly integrated into a single codebase (single layer, just one project/class library).
+
+example - All-in-one applications
+
+N-tier / layered
+> Divides the application into components, layers, where each layer has serves a unique purpose. Layers are built on top of one another.
+
+E.g. user interface layer (MVC app controllers layer), business logic layer (service), database communication layer (repository, DAL) etc. ...
+
+Clean and Onion
+> Layers the application into core and external components. Dependencies flow from the center outwards.
+
+The domain is the innermost part, containing entities, then the appliation layer, containing all the business logic. The external layers, such as the UI layer (containing controllers) and the Data layer (communication with database) both have dependencies on the Application layer.
+
+Difference between Clean and Onion is in the Application layer (Clean makes classes based around use case (e.g. Create/Edit/Get etc), Onion makes classes based around entities (Users, Reviews, BoardGames...).
+
+Microservices
+> All functional parts or features of the application are separated into independent codebases and can be run independently
+
+In terms of Netflix, playing a video could be handled as one microservice, the recommendations page as another, user management a third (each are their own project).
