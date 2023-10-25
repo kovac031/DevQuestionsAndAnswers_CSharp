@@ -1,6 +1,6 @@
 # Questions that every C# developer should answer:
 
-## 1. what is an object in C#? What is a class?
+## 1. What is an object in C#? What is a class?
 
 Classes either contain methods/functions that are executed in the program/app or serve as structure templates for objects.
 
@@ -19,7 +19,7 @@ person.Name = "Ivan";
 person.DOB = new DateTime(1992, 3, 24);
 ```
 
-## 2. list and describe four fundamental object oriented programming concepts.
+## 2. List and describe four fundamental object oriented programming concepts.
 "APIE" acronym.
 
 This about the four main aspects that describe what OOP is about. It's about explaining what is going on with OOP in the code, that's all.
@@ -130,7 +130,7 @@ square.Draw(); // Outputs "Drawing a square."
 // "method hiding"
 ```
 
-## 3. what are constructors?
+## 3. What are constructors?
 A special method with the purpose of initializing objects from different classes. Cannot have a return type, cannot be void.
 
 Constructors have the same name as the class they belong to.
@@ -151,7 +151,7 @@ public class BoardGameController : Controller
 ...
 ```
 
-## 4. what is method overloading?
+## 4. What is method overloading?
 The ability to use the same method name for methods with different parameters.
 ```C#
 [HttpGet]
@@ -162,7 +162,7 @@ public async Task<ActionResult> CreateBoardGameAsync(BoardGameView boardGameView
 { ... }
 ```
 
-## 5. describe method overriding. What is the purpose of the virtual statement?
+## 5. Describe method overriding. What is the purpose of the virtual statement?
 When calling a method makes it use the child class implementation instead of the parent class implementation.
 
 Parent class method must be virtual or override.
@@ -199,7 +199,7 @@ square.Draw();
 // basically the same as method hiding, only keyword differences (override/virtual)
 ```
 
-## 6. list access modifiers in C#.
+## 6. List access modifiers in C#.
 > public
 
 ... accessible from anywhere.
@@ -225,7 +225,7 @@ square.Draw();
 ... accessible from the same assembly and child classes in other assemblies
 
 
-## 7. what is the difference between a Struct and a Class?
+## 7. What is the difference between a Struct and a Class?
 Struct is  value type and Class is a reference type.
 
 ```C#
@@ -239,11 +239,11 @@ public struct Person // must have different name though
 Person person2 = person1;
 ```
 
-In a class, person1 and person1 reference the same object.
+In a class, person1 and person2 reference the same object.
 
 In a struct, person2 is a copy of person1, and we have two different objects.
 
-## 8. describe boxing and unboxing in the context of C#.
+## 8. Describe boxing and unboxing in the context of C#.
 
 Boxing converts a non-object data type to a on object, unboxing reverses it.
 
