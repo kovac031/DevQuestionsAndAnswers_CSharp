@@ -20,51 +20,69 @@ person.DOB = new DateTime(1992, 3, 24);
 ```
 
 ## 2. list and describe four fundamental object oriented programming concepts.
+"APIE" acronym.
 
-Nesto tu ne stima, razlicti izvori objasnjavaju drugacije abstraction i encapsulation, i sad aj ti znaj
+This about the four main aspects that describe what OOP is about. It's about explaining what is going on with OOP in the code, that's all.
 
 ### Abstraction
-The ability for objects to have parameters. The ability to instantiate objects from classes. 
-
-Sources explain this as "hiding" code from the user, referring to only needing to instantiate the object and calling the relevant method and not needing to do anything with the underlying class that we instantiate into the object.
-
-iz nekog drugog odgovora:
-Abstraction: Interfaces are a way to achieve abstraction in your code, separating the definition of behavior from its implementation details. This promotes good coding practices and design principles like the Dependency Inversion Principle (DIP) and the Liskov Substitution Principle (LSP).
-
+In OOP, objects don't exist until they are instantiated (using "new"), but the "blueprint" for them is already made in the form of classes (e.g. model class). Those classes already have all the parameters and methods which will apply to the future object, and in this way those objects are "abstracted".
 
 ### Encapsulation
-Bundling attributes of an object with methods/functions that operate on those attributes into single units = classes
+Hiding complexity. If you don't want for some methods to be accessed directly, you "encapsulate" them within a method that is meant to be accessed directly.
 
+Instead having everything public...
 ```C#
 public class Person
 {
-   public string Name { get; set; }
+   public string Name = "";
+   public string Age = "";
+
+   public void RegisterPerson()
+   {
+      // code
+   }
 }
-...
-Person person = new Person();
+public bool Validate() [...]
+public bool SomethingElse() [...]
+```
+... and calling methods individually ...
+```C#
+// in Program
+Person person = new Person
 person.Name = "Ivan";
-Console.WriteLine(person.Name); // outputs Ivan
+person.Age = "31";
+
+person.Validate();
+person.SomethingElse();
+person.RegisterPerson();
 ```
+... we encapsulate methods, that we want to execute anyway, within the main method ...
 ```C#
 public class Person
 {
-   private string name;
-   public void GetName()
+   public string Name = "";
+   public string Age = "";
+
+   public void RegisterPerson()
    {
-       Console.WriteLine(name); // outputs Ivan
-   }
-   public void SetName(string x)
-   {
-       name = x;
+      // code
+      Validate();
+      SomethingElse();
    }
 }
-...
-Person person = new Person();
-person.SetName("Ivan");
-person.GetName();
+private bool Validate() [...]
+private bool SomethingElse() [...]
 ```
+... and just call the main method. 
+```C#
+// in Program
+Person person = new Person
+person.Name = "Ivan";
+person.Age = "31";
 
-Kroz druge izvore - to sto mozemo jednostavno pozvat metodu koja se nalazi negdje drugdje, mozemo si predociti kao da u toj jednoj liniji/komandi je enkapsuliran citav blok koda koji nesto radi
+person.RegisterPerson();
+```
+There, complexity hidden.
 
 ### Inheritance
 
