@@ -245,7 +245,7 @@ In a struct, person2 is a copy of person1, and we have two different objects.
 
 ## 8. Describe boxing and unboxing in the context of C#.
 
-Boxing converts a non-object data type to a on object, unboxing reverses it.
+Boxing converts a non-object data type to an object, unboxing reverses it.
 
 ```C#
 List<object> listOfObjects = new List<object>(); // object is a data type
@@ -258,41 +258,79 @@ int retrievedValue = (int)listOfObjects[0]; // Unboxing
 
 Not to be confused with mapping.
 
-## 9. which design principles are described by the acronym SOLID? List and describe each of them.
+## 9. Which design principles are described by the acronym SOLID? List and describe each of them.
+[video](https://www.youtube.com/watch?v=kF7rQmSRlq0)
+
 - Single Responsibility Principle
 > A class should have only one reason to change, meaning it should have a single responsibility. In other words, a class should do one thing and do it well.
 
 https://dotnetcoretutorials.com/solid-in-c-single-responsibility-principle/
 
 - Open/Closed Principle
-> Software entities (classes, modules, functions, etc.) should be open for extension but closed for modification. E.g. change parameters in the actual helper method being called in the controller method, but don't introduce parameters in the controller method just so the method can work.
+> Software entities (classes, modules, functions, etc.) should be open for extension but closed for modification.
+
+> E.g. change parameters in the actual helper method being called in the controller method, but don't introduce parameters in the controller method just so the method can work.
 
 https://dotnetcoretutorials.com/solid-in-c-open-closed-principle/
 
-- Liskov Substitution Principle * nije jasno
-> Objects of a derived class should be able to replace objects of the base class without affecting the correctness of the program. In other words, if you have a class hierarchy, derived classes should be substitutable for their base classes without causing issues. (but, apparently this would cause errors anyway)
+- Liskov Substitution Principle 
+> Objects of a derived class should be able to replace objects of the base class without affecting the correctness of the program. In other words, if you have a class hierarchy, derived classes should be substitutable for their base classes without causing issues.
+
+> When using interfaces, child classes can't break Liskov anyway, but when overriding it is possible, so it should not be done that way. 
 
 https://dotnetcoretutorials.com/solid-in-c-liskov-principle/
 
-- Interface Segregation Principle * nije jasno
+- Interface Segregation Principle
 > Clients should not be forced to depend on interfaces they do not use. In essence, it encourages the creation of specific, smaller interfaces rather than large, monolithic ones.
+
+> E.g. if I am doing CRUD and have StudentService class with CRUD methods which inherits from IService, and if I also have a ClassService which also inherits from IService, ClassService will be obliged to implement all the methods suited for StudentService simply because it inherits them from IService. Therefore, IService is bad and should be broken into separate, use-specific interfaces.
 
 https://dotnetcoretutorials.com/solid-in-c-interface-segregation-principle/
 
-- Dependency Inversion Principle * kuzim ali ne znam objasnit
+- Dependency Inversion Principle 
 > High-level modules should not depend on low-level modules; both should depend on abstractions. Abstractions should not depend on details; details should depend on abstractions. This principle encourages the use of interfaces or abstract classes to define dependencies, promoting flexibility and decoupling.
 
 > Dependeny injection is the implementation of dependency inversion principle.
 
 https://dotnetcoretutorials.com/solid-in-c-dependency-inversion/
 
+[from this video explanation](https://www.youtube.com/watch?v=8M7pLjacCPI)
+```C#
+public class DataAccessLayer // higher level class
+{
+   public void AddCustomer(string name)
+   {
+      FileLogger logger = new FileLogger(); // lower level class; the higher level class depends on this lower level class
+      logger.Log("Customer added: " + name);
+   }
+}
+```
+```C#
+public class DataAccessLayer // higher level class
+{
+   private ILogger logger;
 
-## 10. explain DRY acronym in the context of object oriented programming.
+   public DataAccessLayer(ILogger logger) // constructor
+   {
+      this.logger = logger
+   }
+
+   public void AddCustomer(string name)
+   {
+      // no more lower level class here; FileLogger is implemented elsewhere and inherits from ILogger, which we inject
+      logger.Log("Customer added: " + name);
+   }
+}
+```
+The interface is that abstraction mentioned in the definition.
+
+
+## 10. Explain DRY acronym in the context of object oriented programming.
 Don't Repeat Yourself = DRY
 
 > When the same code or logic is needed in multiple places, it should be abstracted into a single, reusable component, such as a function, method, or class.
 
-## 11. describe the difference between break and continue statement.
+## 11. Describe the difference between break and continue statement.
 
 Break stops the loop when the condition is met.
 
@@ -308,16 +346,16 @@ for (int i = 0; i < 5; i++)
 }
 ```
 
-## 12. what are the different approaches of passing parameters to a method?
+## 12. What are the different approaches of passing parameters to a method?
 Pass value type by value or reference, pass reference type by value or reference.
 
 > Pass by value means passing a copy of the variable to the method.
 
 > Pass by reference means passing access to the variable to the method.
 
-> A variable of a reference type contains a reference to its data.
-
 > A variable of a value type contains its data directly.
+
+> A variable of a reference type contains a reference to its data.
 
 Passing value type, by value vs by reference:
 ```C#
@@ -372,15 +410,15 @@ Referencing the original value always changes the original value.
 
 https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/method-parameters
 
-## 13. can multiple catch blocks be executed?
+## 13. Can multiple catch blocks be executed?
 No, only the first in the sequence.
 
-## 14. what are static properties and methods?
+## 14. What are static properties and methods? ***
 Static properties/methods are properties/methods of a class, rather than properties/methods tied to objects created from that class.
 
 Used when we won't be creating objects BUT want the same properties or method to apply across instances of a class.
 
-## 15. what is the purpose of using statement?
+## 15. What is the purpose of using statement?
 ```C#
 using System;
 ```
@@ -395,7 +433,7 @@ using (SqlConnection connection = new SqlConnection(connectionString))
 }
 ```
 
-## 16. what is serialization?
+## 16. What is serialization?
 Serialization converts complex objects, which may contain various data types and nested structures, into a stream of bytes or a textual format.
 Used for e.g. passing objects across methods, storing session data.
 
@@ -403,7 +441,7 @@ Used for e.g. passing objects across methods, storing session data.
 HttpContext.Session.SetString("SelectedCharacters", JsonConvert.SerializeObject(_cardList)); // from my chinese characters app
 ```
 
-## 17. what is an interface in C#?
+## 17. What is an interface in C#?
 An interface declares what its child class should have and should do.
 
 https://www.youtube.com/watch?v=RuhGv81tpoU
@@ -415,21 +453,21 @@ While interfaces serve as "contracts", abstract classes serve as a common space 
 
 Unlike with interfaces, child classes do not have to implement everything from the abstract class.
 
-## 19. can we specify the accessibility modifier for methods inside the interface?
+## 19. Can we specify the accessibility modifier for methods inside the interface?
 Interface methods are always public. We do not set the access modifiers inside interfaces.
 
-## 20. describe the difference between value and reference types.
+## 20. Describe the difference between value and reference types.
 A variable of a reference type contains a reference to its data.
 A variable of a value type contains its data directly.
 
 See answer for #12.
 
-## 21. what are sealed classes?
+## 21. What are sealed classes? ***
 Classes which are finalized, will not be extended further or modified and cannot be inherited, i.e. serve as base class.
 
 Has to do with inheritance. "Either design for inheritance, or else prohibit it"
 
-## 22. what are partial classes?
+## 22. What are partial classes?
 Allows dividing a class into parts. E.g. "public class Person" can have multiple "public partial class Person" (same name) that effectively behave the same, but help with code readibality.
 
 ## 23. What are the differences between System.String and System.Text.StringBuilder classes?
@@ -465,7 +503,7 @@ public class Program
 }
 ```
 
-## 24. what are generics in the context of C#?
+## 24. What are generics in the context of C#?
 Instead of using overloading and having same-name methods that accept different parameters when we want the method to accept a different data type, we use a generic T data type instead.
 
 ```C#
@@ -487,7 +525,7 @@ public static void displayElements<T>(T[] array) // T can be any word
 }
 ```
 
-## 25. what are delegates in C#?
+## 25. What are delegates in C#? **
 Allows to pass methods as parameters in other methods, and to instantiate methods (using new) like we'd do with objects from classes.
 
 ```C#
@@ -520,10 +558,10 @@ MyDelegate addMethod = operation.Add;
 MyDelegate subtractMethod = operation.Subtract;
 ```
 
-## 26. what are nullable types in C#?
+## 26. What are nullable types in C#?
 Data type which can hold null value ... e.g. int?, bool?
 
-## 27. what are indexers in C#?
+## 27. What are indexers in C#?
 Allows for indexing of object lists or arrays.
 
 "this" is a keyword
@@ -558,7 +596,7 @@ public class Program
     }
 ```
 
-## 28. what are C# attributes and how they can be used?
+## 28. What are C# attributes and how they can be used?
 Attributes specify metadata or custom behavior that will apply to classes or methods.
 
 ```C#
@@ -582,10 +620,10 @@ class SomeClass
 }
 ```
 
-## 29. explain extension methods.
+## 29. Explain extension methods.
 Static methods within static classes where we implement functionality that would otherwise clutter or be repeated (counter DRY) in main methods. Easier and cleaner to just call a helper method from outside.
 
-## 30. what is reflection in C#?
+## 30. What is reflection in C#? *
 Reflection is the ability of a code to access the metadata of the assembly during runtime. We're retrieving some specific info we need.
 
 for example:
@@ -602,12 +640,12 @@ MethodInfo methodInfo = typeof(MyClass).GetMethod("MyMethod");
 Type[] types = Assembly.GetExecutingAssembly().GetTypes();
 ```
 
-## 31. What is managed or unmanaged code in .NET?
+## 31. What is managed or unmanaged code in .NET? *
 Managed code is executed by CLR (Common Language Runtime), while unmanaged code falls outside of that scope and is executed by the OS.
 
 All code I wrote or encountered within the .NET environment was managed code, while potentially some added libraires may have contained unmanaged code.
 
-## 32. what are namespaces?
+## 32. What are namespaces?
 Namespaces act as containers or folders for your code, prevent naming conflicts by providing a unique scope for each group of types and can be nested within other namespaces, creating a hierarchical structure. This allows for even finer-grained organization of your code.
 
 ```C#
@@ -617,10 +655,10 @@ using DAL;
 ...
 ```
 
-## 33. describe arrays in C#.
+## 33. Describe arrays in C#.
 A data structure which allows for storing and manipulating a collection of indexed elements of the same data type.
 
-## 34. what kinds of collections exist in C#?
+## 34. What kinds of collections exist in C#? **
 > Arrays
 
 > BitArray
@@ -647,7 +685,7 @@ A data structure which allows for storing and manipulating a collection of index
 
 > Immutable Collections
 
-## 35. what is LINQ?
+## 35. What is LINQ?
 LINQ (Language Integrated Query) is a powerful feature in C# and .NET that enables you to query and manipulate collections of data in a more concise, readable, and expressive manner. LINQ provides a unified query syntax to work with various data sources, such as arrays, collections, databases, XML, and more.
 
 LINQ is often described as a query language because it allows you to express queries in a way that resembles SQL (Structured Query Language). You can filter, project, group, join, and order data using a familiar syntax.
@@ -667,7 +705,7 @@ List<StudentDTO> filteredDTO = filteredList.Skip((pageNumber - 1) * pageSize)
 ...
 ```
 
-## 36. describe the difference between IEnumerable and IQueryable.
+## 36. Describe the difference between IEnumerable and IQueryable.
 Both are for handling collections, but IEnumerable executes immediately and stores a collection in memory, which is performance heavy, while IQueryable builds a query and does not execute until .ToList
 
 ```C#
@@ -683,20 +721,20 @@ goodCustomers = query.Where(c => c.Revenue > 2500);) // again, no customers
 var goodCustomersList = goodCustomers.ToList(); // gets some amount of customers based on criteria
 ```
 
-## 37. describe the concept of lazy loading.
+## 37. Describe the concept of lazy loading. *
 The approach in designing your code so that required data is loaded as necessary instead of in advance. E.g. not loading an entire list first and then narrowing it down.
 
 There is also the Lazy<T> "wrapper" which makes it so that a method is not executed in normal order but only when the variable (of an instanced class) is first used elsewhere in code. (I guess something like async, did not encounter this yet).
 
-## 38. explain the concept of deferred execution.
+## 38. Explain the concept of deferred execution.
 Execution of code later, like with .ToList or .First with IQueryable (see #36)
 
-## 39. what is the purpose of the C# yield statement?
+## 39. What is the purpose of the C# yield statement?
 Using yield return with loops we return results one by one on each iteration, as opposed to waiting for the entire sequence to complete first and then see results.
 
-https://www.youtube.com/watch?v=uv74SZ5MX5Q
+[video explaining yield](https://www.youtube.com/watch?v=uv74SZ5MX5Q)
 
-## 40. explain lambda expressions.
+## 40. Explain lambda expressions.
 => is the lambda operator, reads as "goes to" or "by". Lambda expression is way of writing concise code.
 
 ```C#
@@ -716,10 +754,10 @@ List<int> numbers = new List<int> { 1, 2, 3, 4, 5 };
 numbers.RemoveAll(x => x % 2 == 0); // Removes even numbers
 ```
 
-## 41. what is type inference?
+## 41. What is type inference?
 The ability to not have to specifically declare each data type, it gets infered with var.
 
-## 42. explain Func and Action delegates.
+## 42. Explain Func and Action delegates. *
 Delegate types. Func is a generic delegate. Action delegate does not return a value (void type).
 
 ```C#
@@ -738,12 +776,12 @@ static void Main(string[] args)
 static void Square(double nmb) => Console.WriteLine(Math.Pow(nmb, 2));
 ```
 
-## 43. what is Entity Framework?
+## 43. What is Entity Framework?
 Entity Framework (EF) is an Object-Relational Mapping (ORM) framework developed by Microsoft.
 
 Object-Relational Mapping (ORM) is a programming technique and framework that allows developers to work with databases using object-oriented concepts. It bridges the gap between the relational databases, which store data in tables, and object-oriented programming languages, which use objects to represent data and behavior.
 
-## 44. what are Context and Entity classes in EF?
+## 44. What are Context and Entity classes in EF?
 The Context class, derived from DbContext in EF, represents the database session and is responsible for the interaction between your application and the database.
 
 Entity classes contain properties that map to the columns in the database table.
@@ -764,7 +802,7 @@ public class MyDbContext : DbContext
 }
 ```
 
-## 45. explain asynchronous method calls with async/await pattern.
+## 45. Explain asynchronous method calls with async/await pattern.
 Asynchronous refers to a style of executing tasks where a program doesn't need to wait for one task to complete before moving on to the next one.
 
 ```C#
@@ -775,7 +813,7 @@ async Task<int> CalculateAsync()
 }
 ```
 
-## 46. what is Dependency Injection. How and why is it used?
+## 46. What is Dependency Injection. How and why is it used?
 Passing the classes that your class depends on as interfaces via the constructor rather than having your class create those dependencies.
 
 ```C#
@@ -783,19 +821,19 @@ public class OrderService
 {
     private readonly IDatabase _database;
 
-    public OrderService(IDatabase database)
+    public OrderService(IDatabase database) // constructor
     {
         _database = database;
     }
     public void PlaceOrder(Order order)
     {
-        _database.Save(order);
+        _database.Save(order); // if no DI, we'd have to instantiate an object from a class, creating a dependency and breaking SOLID
     }
 }
 ```
 > If we need to change database related code, we'll do it in IDatabase and not in PlaceOrder in OrderService.
 
-## 47. what types of Dependency Injection exist in C#?
+## 47. What types of Dependency Injection exist in C#? **
 Constructor injection:
 ```C#
 public class OrderService
@@ -834,7 +872,7 @@ public class OrderService
 }
 ```
 
-## 48. what DI scopes are available with the container you used? Explain the scenarios for usage of each of these scopes.
+## 48. What DI scopes are available with the container you used? Explain the scenarios for usage of each of these scopes. *
 DI containers I used:
 - Autofac in .NET EF 4.7.2 [(1)](https://github.com/kovac031/PlayPalMini-MVC/blob/main/PlayPalMini/PlayPalMini.MVC/App_Start/DIContainer.cs), [(2)](https://github.com/kovac031/PlayPalMini-WebAPI/blob/main/PlayPalMini/PlayPalMini.WebAPI/App_Start/DependencyInjectionConfig.cs)
 - ASP.NET Core's built-in DI container [(1)](https://github.com/kovac031/AutoMapper-Core/blob/main/ProjectMVC/MVC/Program.cs), [(2)](https://github.com/kovac031/AutoMapper-Core/blob/main/ProjectWebAPI/WebAPI/Program.cs)
@@ -861,22 +899,22 @@ builder.Services.AddSingleton<IService, StudentService>();
 builder.Services.AddSingleton<IRepository, StudentRepository>();
 ```
 
-## 49. what are software patterns?
+## 49. What are software patterns?
 Design patterns are typical solutions to commonly occurring problems in software design. They are like pre-made blueprints that you can customize to solve a recurring design problem in your code.
 
-## 50. explain several design patters (structural, creational, behavioral, ...). For example, singleton, factory, adapter, repository, etc. 
+## 50. explain several design patters (structural, creational, behavioral, ...). For example, singleton, factory, adapter, repository, etc. ***
 > Recommended resource for more info: https://dotnettutorials.net/course/dot-net-design-patterns/
 
-Creational design patterns:
+### Creational design patterns:
 > deals with Object Creation and Initialization
 
-- Singleton
+### - Singleton
   
 Instead of creating new objects when we call a class (instantiate with "new"), we instead set it up so that the same object is used (we do ClassName.MethodName). [video](https://www.youtube.com/watch?v=YGGg9ecy0K4&list=PL6n9fhu94yhUbctIoxoVTrklN3LMwTCmd&index=2)
 
 If multiple threads, it may violate singleton because additional instances may be created on different threads, [solution](https://www.youtube.com/watch?v=QWrcOmLWi_Q&list=PL6n9fhu94yhUbctIoxoVTrklN3LMwTCmd&index=4).
 
-- Factory Method
+### - Factory Method
 
 A factory is an object which can create other objects. 
 
@@ -884,7 +922,7 @@ Factory method design pattern is about creating objects without exposing the cre
 
 > E.g. client is selecting some product for whatever reason ([factory is making boats or trucks](https://refactoring.guru/design-patterns/factory-method)) - instead of having all logic be inside a switch loop or similar and have it duplicated for trucks and boats, we place the logic in a different class, a single "factory", and simply call a method that accept the client's choice as parameter.
 
-- Abstract Factory
+### - Abstract Factory
 Like Factory method pattern, but instead of creating a single object, it creates multiple objects.
 
 - Builder
@@ -893,7 +931,7 @@ Like Factory method pattern, but instead of creating a single object, it creates
 
 
 
-Structural Design Pattern:
+### Structural Design Pattern:
 > used to Manage the Structure of Classes and Interfaces and the Relationship Between the Classes and Interfaces
 
 - Adapter
@@ -904,7 +942,7 @@ Structural Design Pattern:
 - Flyweight
 - Bridge
 
-Behavioral Design Patterns:
+### Behavioral Design Patterns:
 > deal with the Communication Between Classes and Objects
 
 - Chain of Responsibility
@@ -919,7 +957,7 @@ Behavioral Design Patterns:
 - Memento
 - Interpreter
 
-Architectural Patterns:
+### Architectural Patterns:
 > deal with the overall architecture and organization of an application
 
 - Repository
@@ -927,12 +965,12 @@ Architectural Patterns:
 - MVC
 
 
-## 51. what is unit testing?
+## 51. What is unit testing?
 Testing individual units of code, such as methods/functions, to see if they produce the expected result in isolation.
 
 In contrast, there is integration testing which tests how multiple components work together.
 
-## 52. what is mocking? What is its purpose?
+## 52. What is mocking? What is its purpose?
 Mocking is a technique used in unit testing. It involves creating fake or "mock" objects to simulate the behavior of real components or dependencies. 
 
 The purpose of mocking is to isolate the code being tested by replacing its dependencies with these mock objects. This helps in testing the code in isolation and ensures that the tests focus solely on the unit of code under examination. (E.g. when testing controller methods, we don't want to ACTUALLY call the methods in the service layer, so we mock that)
