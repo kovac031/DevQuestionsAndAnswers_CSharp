@@ -261,33 +261,33 @@ Not to be confused with mapping.
 ## 9. Which design principles are described by the acronym SOLID? List and describe each of them.
 [video](https://www.youtube.com/watch?v=kF7rQmSRlq0)
 
-- Single Responsibility Principle
+### - Single Responsibility Principle
 > A class should have only one reason to change, meaning it should have a single responsibility. In other words, a class should do one thing and do it well.
 
 https://dotnetcoretutorials.com/solid-in-c-single-responsibility-principle/
 
-- Open/Closed Principle
+### - Open/Closed Principle
 > Software entities (classes, modules, functions, etc.) should be open for extension but closed for modification.
 
 > E.g. change parameters in the actual helper method being called in the controller method, but don't introduce parameters in the controller method just so the method can work.
 
 https://dotnetcoretutorials.com/solid-in-c-open-closed-principle/
 
-- Liskov Substitution Principle 
+### - Liskov Substitution Principle 
 > Objects of a derived class should be able to replace objects of the base class without affecting the correctness of the program. In other words, if you have a class hierarchy, derived classes should be substitutable for their base classes without causing issues.
 
 > When using interfaces, child classes can't break Liskov anyway, but when overriding it is possible, so it should not be done that way. 
 
 https://dotnetcoretutorials.com/solid-in-c-liskov-principle/
 
-- Interface Segregation Principle
+### - Interface Segregation Principle
 > Clients should not be forced to depend on interfaces they do not use. In essence, it encourages the creation of specific, smaller interfaces rather than large, monolithic ones.
 
 > E.g. if I am doing CRUD and have StudentService class with CRUD methods which inherits from IService, and if I also have a ClassService which also inherits from IService, ClassService will be obliged to implement all the methods suited for StudentService simply because it inherits them from IService. Therefore, IService is bad and should be broken into separate, use-specific interfaces.
 
 https://dotnetcoretutorials.com/solid-in-c-interface-segregation-principle/
 
-- Dependency Inversion Principle 
+### - Dependency Inversion Principle 
 > High-level modules should not depend on low-level modules; both should depend on abstractions. Abstractions should not depend on details; details should depend on abstractions. This principle encourages the use of interfaces or abstract classes to define dependencies, promoting flexibility and decoupling.
 
 > Dependeny injection is the implementation of dependency inversion principle.
