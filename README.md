@@ -902,7 +902,7 @@ builder.Services.AddSingleton<IRepository, StudentRepository>();
 ## 49. What are software patterns?
 Design patterns are typical solutions to commonly occurring problems in software design. They are like pre-made blueprints that you can customize to solve a recurring design problem in your code.
 
-## 50. explain several design patters (structural, creational, behavioral, ...). For example, singleton, factory, adapter, repository, etc. ***
+## 50. Explain several design patters (structural, creational, behavioral, ...). For example, singleton, factory, adapter, repository, etc. ***
 > Recommended resource for more info: https://dotnettutorials.net/course/dot-net-design-patterns/
 
 ### Creational design patterns:
@@ -925,44 +925,44 @@ Factory method design pattern is about creating objects without exposing the cre
 ### - Abstract Factory
 Like Factory method pattern, but instead of creating a single object, it creates multiple objects.
 
-- Builder
-- Prototype
-- Fluent Interface
+### - Builder
+### - Prototype
+### - Fluent Interface
 
 
 
 ### Structural Design Pattern:
 > used to Manage the Structure of Classes and Interfaces and the Relationship Between the Classes and Interfaces
 
-- Adapter
-- Facade
-- Decorator
-- Composite
-- Proxy
-- Flyweight
-- Bridge
+### - Adapter
+### - Facade
+### - Decorator
+### - Composite
+### - Proxy
+### - Flyweight
+### - Bridge
 
 ### Behavioral Design Patterns:
 > deal with the Communication Between Classes and Objects
 
-- Chain of Responsibility
-- Command
-- Observer
-- Iterator
-- State
-- TemplateMethod
-- Visitor
-- Strategy
-- Mediator
-- Memento
-- Interpreter
+### - Chain of Responsibility
+### - Command
+### - Observer
+### - Iterator
+### - State
+### - TemplateMethod
+### - Visitor
+### - Strategy
+### - Mediator
+### - Memento
+### - Interpreter
 
 ### Architectural Patterns:
 > deal with the overall architecture and organization of an application
 
-- Repository
-- Clean
-- MVC
+### - Repository
+### - Clean
+### - MVC
 
 
 ## 51. What is unit testing?
