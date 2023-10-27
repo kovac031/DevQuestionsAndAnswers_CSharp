@@ -936,9 +936,9 @@ Like Factory method pattern, but instead of creating a single object, it creates
 
 ### - Adapter
 
-We have two classes with different behaviors, each inherit from their respective interfaces. We make an "adapted" class which inherits from an interface we want methods from. BUT, we then change the contents of those methods (to behave like in the original class) while keeping the names and parameters so that the interface doesn't complain.
+We have two classes with different behaviors, each inherit from their respective interfaces. We make an "adapted" class in which we inject the incompatible class via dependency injection AND which inherits from an interface we want methods from. BUT, we then change the contents of those methods (to behave like in the original class) while keeping the names and parameters so that the interface doesn't complain. 
 
-That way we masked (wrapped, adapted) our incompatible class/code to work with whatever needs the new setup and can't work with the original class, WITHOUT (!) changing or losing the original class, because someother code may still use it.
+That way we masked (wrapped, adapted) our incompatible class/code to work with whatever needs the new setup and can't work with the original class, WITHOUT (!) changing or losing the original class, because some other code may still use it.
 
 [E.g. here we want to use Adaptee, but for whatever reason we can't. So we mask it using a new Adapter class, to trick the code into accepting it.](https://refactoring.guru/design-patterns/adapter/csharp/example)
 
