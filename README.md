@@ -929,9 +929,9 @@ Like Factory method pattern, but instead of creating a single object, it creates
 ### - Prototype
 ### - Fluent Interface
 
+...
 
-
-### Structural Design Pattern:
+### Structural Design Patterns:
 > used to Manage the Structure of Classes and Interfaces and the Relationship Between the Classes and Interfaces
 
 ### - Adapter
@@ -951,6 +951,8 @@ That way we masked (wrapped, adapted) our incompatible class/code to work with w
 ### - Flyweight
 ### - Bridge
 
+...
+
 ### Behavioral Design Patterns:
 > deal with the Communication Between Classes and Objects
 
@@ -965,6 +967,8 @@ That way we masked (wrapped, adapted) our incompatible class/code to work with w
 ### - Mediator
 ### - Memento
 ### - Interpreter
+
+...
 
 ### Architectural Patterns:
 > deal with the overall architecture and organization of an application
@@ -984,14 +988,16 @@ Mocking is a technique used in unit testing. It involves creating fake or "mock"
 
 The purpose of mocking is to isolate the code being tested by replacing its dependencies with these mock objects. This helps in testing the code in isolation and ensures that the tests focus solely on the unit of code under examination. (E.g. when testing controller methods, we don't want to ACTUALLY call the methods in the service layer, so we mock that)
 
+...
+
 # Basic RDBMS and SQL questions:
 
-## 1. What is a difference between a column and a field?
+## 1. What is the difference between a column and a field?
 A column is a collection of cells alligned vertically in a table. 
 
 A field is an element in which one piece of information is stored.
 
-## 2. What is primary key?
+## 2. What is a primary key?
 The primary key in SQL is a single, or a group of fields or columns that can uniquely identify a row in a table.
 
 ## 3. What is natural vs surrogate primary key?
@@ -1155,25 +1161,23 @@ COMMIT;
 -- ROLLBACK;
 ```
 
+...
 
 # Basic Web development topics:
 
-## 1. explain the concept of MVC.
+## 1. Explain the concept of MVC.
 MVC stands for Model-View-Controller, a design pattern commonly used in web development.
 
-- Model:
+Model:
+> This is where your data and business logic reside. It represents your application's data and how it should be processed.
 
-This is where your data and business logic reside. It represents your application's data and how it should be processed.
+View: 
+> This is the part that the user sees and interacts with. It's responsible for presenting data to the user in a user-friendly way.
 
-- View: 
+Controller: 
+> This acts as an intermediary between the Model and View. It receives user input, processes it, interacts with the Model to get the required data, and then updates the View to show the results to the user
 
-This is the part that the user sees and interacts with. It's responsible for presenting data to the user in a user-friendly way.
-
-- Controller: 
-
-This acts as an intermediary between the Model and View. It receives user input, processes it, interacts with the Model to get the required data, and then updates the View to show the results to the user
-
-## 2. name several different types of results returned by action methods.
+## 2. Name several different types of results returned by action methods.
 View, PartialView, Json, Redirect, RedirectToRoute, Content, File, Empty
 
 ```C#
@@ -1231,7 +1235,7 @@ public IActionResult NoContent()
 ## 3. What is the difference between ViewResult and ActionResult?
 ViewResult is a specific type of ActionResult used when you want to return a view, while ActionResult is a more general type that can represent a variety of result types.
 
-## 4. what are filters in MVC? Name some of them.
+## 4. What are filters in MVC? Name some of them.
 Filters are specific types of attributes that are used to perform pre-processing and post-processing logic around action methods.
 
 Authorization filters like [Authorize], Action filters, Result filters and Exception filters like [HandleError].
@@ -1240,7 +1244,7 @@ https://www.tutorialsteacher.com/mvc/filters-in-asp.net-mvc
 
 Custom filters can be made.
 
-## 5. how routing works in MVC? What types of routing exist?
+## 5. How routing works in MVC? What types of routing exist?
 Routing is a pattern matching system. Routing maps an incoming request (from the browser) to particular resources (controller & action method).
 
 Routing parses the request in route configuration. Then, it matches the request in the route table to ensure which controller and which action will be processed.
@@ -1262,7 +1266,7 @@ public ActionResult Show(int id)
 }
 ```
 
-## 6. what are the differences between TempData, ViewData and ViewBag?
+## 6. What are the differences between TempData, ViewData and ViewBag?
 They handle temporary data.
 
 TempData for persisting data from action to action. ViewData from controller to view.
@@ -1289,22 +1293,22 @@ public class MyController : Controller
 </body>
 ```
 
-## 7. explain the difference between View and Partial View.
+## 7. Explain the difference between View and Partial View.
 A View represents a complete web page or a significant portion of it. It is typically used to render the main content of a page.
 
 A Partial View is designed to represent a smaller, reusable component of a page. It is a way to break down complex pages into smaller, manageable sections.
  
-## 8. what is ViewModel in MVC?
+## 8. What is ViewModel in MVC?
 ViewModel is the model class containing all the data required by a specific View.
 
-## 9. what are HTML helpers?
+## 9. What are HTML helpers?
 HTML Helpers are a set of methods in ASP.NET MVC that provide a way to generate HTML markup in views using C# or VB.NET code. They make it easier to create HTML elements and controls in your views.
 ```HTML+Razor
 @Html.ActionLink("Click Me", "About", "Home") // uses html helper
 <a href="@Url.Action("About", "Home")">Click Me</a> // no html helper
 ```
 
-## 10. what are layouts and what is their purpose?
+## 10. What are layouts and what is their purpose?
 Layouts in ASP.NET MVC are a feature that allows you to define a common structure for your web application's pages. They serve as a template or a master page that provides the overall layout and structure that is consistent across multiple views or pages.
 ```HTML+Razor
 <!DOCTYPE html>
@@ -1338,7 +1342,7 @@ Layouts in ASP.NET MVC are a feature that allows you to define a common structur
 <p>This is the home page content.</p>
 ```
 
-## 11. what is Razor? How are code blocks defined in Razor?
+## 11. What is Razor? How are code blocks defined in Razor?
 Razor is a markup syntax used in ASP.NET MVC (and later in ASP.NET Core) to embed server-side code within HTML markup. It provides a clean and concise way to create dynamic web pages by mixing C# or VB.NET code with HTML.
 
 To define a codeblock use @{ ... } syntax
@@ -1348,7 +1352,7 @@ To define a codeblock use @{ ... } syntax
 }
 ```
 
-## 12. how is validation implemented in ASP.NET MVC?
+## 12. How is validation implemented in ASP.NET MVC?
 ASP.NET MVC includes built-in attribute classes in the System.ComponentModel.DataAnnotations namespace. We used attributes to validate data.
 
 ```C#
@@ -1375,27 +1379,27 @@ public ActionResult Create(Person person)
 }
 ```
 
-## 13. name and explain different web application architectures. Good resource:
+## 13. Name and explain different web application architectures. Good resource:
 https://docs.microsoft.com/en-us/dotnet/architecture/modern-web-apps-azure/commonweb-application-architectures
 
-Monolithic
+### Monolithic
 > All the components, such as the user interface, business logic, and data access, are tightly integrated into a single codebase (single layer, just one project/class library).
 
-example - All-in-one applications
+For example "All-in-one" applications
 
-N-tier / layered
+### N-tier / layered
 > Divides the application into components, layers, where each layer has serves a unique purpose. Layers are built on top of one another.
 
 E.g. user interface layer (MVC app controllers layer), business logic layer (service), database communication layer (repository, DAL) etc. ...
 
-Clean and Onion
+### Clean and Onion
 > Layers the application into core and external components. Dependencies flow from the center outwards.
 
 The domain is the innermost part, containing entities, then the appliation layer, containing all the business logic. The external layers, such as the UI layer (containing controllers) and the Data layer (communication with database) both have dependencies on the Application layer.
 
 Difference between Clean and Onion is in the Application layer (Clean makes classes based around use case (e.g. Create/Edit/Get etc), Onion makes classes based around entities (Users, Reviews, BoardGames...).
 
-Microservices
+### Microservices
 > All functional parts or features of the application are separated into independent codebases and can be run independently
 
 In terms of Netflix, playing a video could be handled as one microservice, the recommendations page as another, user management a third (each are their own project).
