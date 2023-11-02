@@ -984,6 +984,7 @@ builder.RegisterType<BoardGameService>().As<IBoardGameService>();
 ```C#
 builder.Services.AddScoped<IService, StudentService>();
 ```
+[video](https://www.youtube.com/watch?v=qJmEI2LtXIY)
 
 ### - Clean
 ### - MVC
