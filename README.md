@@ -974,6 +974,17 @@ That way we masked (wrapped, adapted) our incompatible class/code to work with w
 > deal with the overall architecture and organization of an application
 
 ### - Repository
+
+When we use a repository interface that implementes methods (e.g. CRUD), but have several different repository classes that inherit from that interface while also operating differently (one connecting to one database, another to some other), we'd be injecting the repository interface to the controller or service or whatever layer using dependency injection constructor. But this injection does not specify which repository class should be used, so we also have to specify this in the DI container/config file.
+
+Like here, "use this class with this interface":
+```C#
+builder.RegisterType<BoardGameService>().As<IBoardGameService>();
+```
+```C#
+builder.Services.AddScoped<IService, StudentService>();
+```
+
 ### - Clean
 ### - MVC
 
