@@ -910,8 +910,25 @@ Design patterns are typical solutions to commonly occurring problems in software
 
 ### - Singleton
   
-Instead of creating new objects when we call a class (instantiate with "new"), we instead set it up so that the same object is used (we do ClassName.MethodName). [video](https://www.youtube.com/watch?v=YGGg9ecy0K4&list=PL6n9fhu94yhUbctIoxoVTrklN3LMwTCmd&index=2)
+Instead of creating new objects when we call a class (instantiate with "new"), we instead set it up so that the same object is used (we do ClassName.MethodName). [video](https://www.youtube.com/watch?v=r6Y0SmbufmU)
 
+```C#
+public class MyExample
+{
+    private static MyExample myExample;
+
+    private MyExample() { } // private constructor
+
+    public static MyExample MyInstanceMethod()
+    {
+        if (myExample == null)
+        {
+            myExample = new MyExample();
+        }
+        return myExample;
+    }
+...
+```
 If multiple threads, it may violate singleton because additional instances may be created on different threads, [solution](https://www.youtube.com/watch?v=QWrcOmLWi_Q&list=PL6n9fhu94yhUbctIoxoVTrklN3LMwTCmd&index=4).
 
 ### - Factory Method
@@ -921,6 +938,60 @@ A factory is an object which can create other objects.
 Factory method design pattern is about creating objects without exposing the creation logic to the client. Subclasses choose which class to instantiate.
 
 > E.g. client is selecting some product for whatever reason ([factory is making boats or trucks](https://refactoring.guru/design-patterns/factory-method)) - instead of having all logic be inside a switch loop or similar and have it duplicated for trucks and boats, we place the logic in a different class, a single "factory", and simply call a method that accept the client's choice as parameter.
+
+Very similar to my polymorphism example:
+
+```C#
+public abstract class Shape
+{
+    public abstract void Draw();
+}
+public class Circle : Shape
+{
+    public override void Draw()
+    {
+        Console.WriteLine("Drawing a circle.");
+    }
+}
+public class Square : Shape
+{
+    public override void Draw()
+    {
+        Console.WriteLine("Drawing a square.");
+    }
+}
+public class ShapeFactory // Factory class to create shapes
+{
+    public Shape CreateShape(string shapeType)
+    {
+        if (shapeType.Equals("Circle", StringComparison.OrdinalIgnoreCase))
+        {
+            return new Circle();
+        }
+        else if (shapeType.Equals("Square", StringComparison.OrdinalIgnoreCase))
+        {
+            return new Square();
+        }
+        else
+        {
+            throw new ArgumentException("Invalid shape type.");
+        }
+    }
+}
+class Program
+{
+    static void Main()
+    {
+        ShapeFactory factory = new ShapeFactory();
+
+        Shape circle = factory.CreateShape("Circle");
+        Shape square = factory.CreateShape("Square");
+
+        circle.Draw(); // Outputs "Drawing a circle."
+        square.Draw(); // Outputs "Drawing a square."
+    }
+}
+```
 
 ### - Abstract Factory
 Like Factory method pattern, but instead of creating a single object, it creates multiple objects.
@@ -1097,11 +1168,23 @@ WHERE condition;
 ## 10. What is an index and what is its purpose?
 Index is a data structure which references values found in table columns. They are just used to speed up searches/queries. [video](https://www.youtube.com/watch?v=fsG1XaZEa78)
 
+```SQL
+CREATE INDEX idx_lastname
+ON Persons (LastName)
+```
 https://www.w3schools.com/sql/sql_ref_index.asp
 
 ## 11. What is a check constraint?
 The CHECK constraint is used to limit the value range that can be placed in a column.
 
+```SQL
+CREATE TABLE Persons (
+    ID int NOT NULL,
+    LastName varchar(255) NOT NULL,
+    FirstName varchar(255),
+    Age int CHECK (Age>=18)
+); 
+```
 https://www.w3schools.com/sql/sql_check.asp
 
 ## 12. Explain the difference between a stored procedure and a function.
