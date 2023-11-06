@@ -996,74 +996,70 @@ class Program
 ### - Abstract Factory
 Like Factory method pattern, but instead of creating a single object, it is used for creating multiple objects.
 
-Using the example below, a Factory would be used when WindowsFactory and MacOSFactory would only be creating a button OR a checkbox, but not both, while in Abstract Factory pattern both would be creating both types of objects.
-
 ```C#
-public abstract class Button // Abstract Product A
+public abstract class Circle // Abstract Product A
 {
-    public abstract void Render();
+    public abstract void Draw();
 }
-public class WindowsButton : Button // Concrete Product A1
+public class PrettyCircle : Circle // Concrete Product A1
 {
-    public override void Render()
+    public override void Draw()
     {
-        Console.WriteLine("Rendering a Windows button.");
+        Console.WriteLine("Drawing a pretty circle.");
     }
 }
-public class MacOSButton : Button // Concrete Product A2
+public class UglyCircle : Circle // Concrete Product A2
 {
-    public override void Render()
+    public override void Draw()
     {
-        Console.WriteLine("Rendering a MacOS button.");
-    }
-}
-
-public abstract class Checkbox // Abstract Product B
-{
-    public abstract void Render();
-}
-public class WindowsCheckbox : Checkbox // Concrete Product B1
-{
-    public override void Render()
-    {
-        Console.WriteLine("Rendering a Windows checkbox.");
-    }
-}
-public class MacOSCheckbox : Checkbox // Concrete Product B2
-{
-    public override void Render()
-    {
-        Console.WriteLine("Rendering a MacOS checkbox.");
+        Console.WriteLine("Drawing an ugly circle.");
     }
 }
 
-public abstract class GUIFactory // Abstract Factory
+public abstract class Square // Abstract Product B
 {
-    public abstract Button CreateButton();
-    public abstract Checkbox CreateCheckbox();
+    public abstract void Draw();
 }
-public class WindowsFactory : GUIFactory // Concrete Factory for Windows
+public class PrettySquare : Square // Concrete Product B1
 {
-    public override Button CreateButton()
+    public override void Draw()
     {
-        return new WindowsButton();
-    }
-
-    public override Checkbox CreateCheckbox()
-    {
-        return new WindowsCheckbox();
+        Console.WriteLine("Drawing a pretty square.");
     }
 }
-public class MacOSFactory : GUIFactory // Concrete Factory for MacOS
+public class UglySquare : Square // Concrete Product B2
 {
-    public override Button CreateButton()
+    public override void Draw()
     {
-        return new MacOSButton();
+        Console.WriteLine("Drawing an ugly square.");
     }
+}
 
-    public override Checkbox CreateCheckbox()
+public abstract class ShapeFactory // Abstract Factory
+{
+    public abstract Circle CreateCircle();
+    public abstract Square CreateSquare();
+}
+public class PrettyShapeFactory : ShapeFactory // Concrete Factory for PrettyShapes
+{
+    public override Circle CreateCircle()
     {
-        return new MacOSCheckbox();
+        return new PrettyCircle();
+    }
+    public override Square CreateSquare()
+    {
+        return new PrettySquare();
+    }
+}
+public class UglyShapeFactory : ShapeFactory // Concrete Factory for UglyShapes
+{
+    public override Circle CreateCircle()
+    {
+        return new UglyCircle();
+    }
+    public override Square CreateSquare()
+    {
+        return new UglySquare();
     }
 }
 
@@ -1071,21 +1067,21 @@ class Program
 {
     static void Main()
     {
-        // Create a Windows GUI
-        GUIFactory windowsFactory = new WindowsFactory();
-        Button windowsButton = windowsFactory.CreateButton();
-        Checkbox windowsCheckbox = windowsFactory.CreateCheckbox();
+        // Create PrettyShapes
+        ShapeFactory prettyFactory = new PrettyShapeFactory();
+        Circle prettyCircle = prettyFactory.CreateCircle();
+        Square prettySquare = prettyFactory.CreateSquare();
 
-        windowsButton.Render(); // Outputs "Rendering a Windows button."
-        windowsCheckbox.Render(); // Outputs "Rendering a Windows checkbox."
+        prettyCircle.Draw(); // Outputs "Drawing a pretty circle."
+        prettySquare.Draw(); // Outputs "Drawing a pretty square."
 
-        // Create a MacOS GUI
-        GUIFactory macosFactory = new MacOSFactory();
-        Button macosButton = macosFactory.CreateButton();
-        Checkbox macosCheckbox = macosFactory.CreateCheckbox();
+        // Create UglyShapes
+        ShapeFactory uglyFactory = new UglyShapeFactory();
+        Circle uglyCircle = uglyFactory.CreateCircle();
+        Square uglySquare = uglyFactory.CreateSquare();
 
-        macosButton.Render(); // Outputs "Rendering a MacOS button."
-        macosCheckbox.Render(); // Outputs "Rendering a MacOS checkbox."
+        uglyCircle.Draw(); // Outputs "Drawing an ugly circle."
+        uglySquare.Draw(); // Outputs "Drawing an ugly square."
     }
 }
 ```
