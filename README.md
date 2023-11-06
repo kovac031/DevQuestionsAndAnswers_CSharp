@@ -992,9 +992,12 @@ class Program
     }
 }
 ```
+The point of this pattern is that there is a base abstract class or interface (Shape) which has a method (Draw) that is intended to be common to all products (Circle and Square), but those products then have their own implementation of that common method. I use Factory when I want to reuse a method.
 
 ### - Abstract Factory
-Like Factory method pattern, but instead of creating a single object, it is used for creating multiple objects.
+Unlike the Factory pattern, the Abstract Factory pattern does not have a base class and common method as the focus, that's not the point of it. This one is about creating "families of related objects". 
+
+It defines a set of abstract factory methods (CreateCircle and CreateSquare) for creating different product families (PrettyShapes and UglyShapes). Concrete factories (PrettyShapeFactory and UglyShapeFactory) implement these methods to create their product families (PrettyShapes and UglyShapes).
 
 ```C#
 public abstract class Circle // Abstract Product A
@@ -1067,7 +1070,7 @@ class Program
 {
     static void Main()
     {
-        // Create PrettyShapes
+        // Create PrettyShapes - product family
         ShapeFactory prettyFactory = new PrettyShapeFactory();
         Circle prettyCircle = prettyFactory.CreateCircle();
         Square prettySquare = prettyFactory.CreateSquare();
@@ -1075,7 +1078,7 @@ class Program
         prettyCircle.Draw(); // Outputs "Drawing a pretty circle."
         prettySquare.Draw(); // Outputs "Drawing a pretty square."
 
-        // Create UglyShapes
+        // Create UglyShapes - product family
         ShapeFactory uglyFactory = new UglyShapeFactory();
         Circle uglyCircle = uglyFactory.CreateCircle();
         Square uglySquare = uglyFactory.CreateSquare();
@@ -1085,6 +1088,7 @@ class Program
     }
 }
 ```
+E.g. for real world usage, Windows vs MacOS UI both need buttons and checkboxes and other objects but will need different implementation.
 
 ### - Builder
 ### - Prototype
