@@ -1592,3 +1592,11 @@ Difference between Clean and Onion is in the Application layer (Clean makes clas
 > All functional parts or features of the application are separated into independent codebases and can be run independently
 
 In terms of Netflix, playing a video could be handled as one microservice, the recommendations page as another, user management a third (each are their own project).
+
+...
+
+# Extras
+
+## Getters and setters and auto-implemented properties
+https://www.youtube.com/watch?v=8FmE_-QXg3Y
+https://www.youtube.com/watch?v=Z70AwnYYJOc
