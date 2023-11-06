@@ -994,7 +994,101 @@ class Program
 ```
 
 ### - Abstract Factory
-Like Factory method pattern, but instead of creating a single object, it creates multiple objects.
+Like Factory method pattern, but instead of creating a single object, it is used for creating multiple objects.
+
+Using the example below, a Factory would be used when WindowsFactory and MacOSFactory would only be creating a button OR a checkbox, but not both, while in Abstract Factory pattern both would be creating both types of objects.
+
+```C#
+public abstract class Button // Abstract Product A
+{
+    public abstract void Render();
+}
+public class WindowsButton : Button // Concrete Product A1
+{
+    public override void Render()
+    {
+        Console.WriteLine("Rendering a Windows button.");
+    }
+}
+public class MacOSButton : Button // Concrete Product A2
+{
+    public override void Render()
+    {
+        Console.WriteLine("Rendering a MacOS button.");
+    }
+}
+
+public abstract class Checkbox // Abstract Product B
+{
+    public abstract void Render();
+}
+public class WindowsCheckbox : Checkbox // Concrete Product B1
+{
+    public override void Render()
+    {
+        Console.WriteLine("Rendering a Windows checkbox.");
+    }
+}
+public class MacOSCheckbox : Checkbox // Concrete Product B2
+{
+    public override void Render()
+    {
+        Console.WriteLine("Rendering a MacOS checkbox.");
+    }
+}
+
+public abstract class GUIFactory // Abstract Factory
+{
+    public abstract Button CreateButton();
+    public abstract Checkbox CreateCheckbox();
+}
+public class WindowsFactory : GUIFactory // Concrete Factory for Windows
+{
+    public override Button CreateButton()
+    {
+        return new WindowsButton();
+    }
+
+    public override Checkbox CreateCheckbox()
+    {
+        return new WindowsCheckbox();
+    }
+}
+public class MacOSFactory : GUIFactory // Concrete Factory for MacOS
+{
+    public override Button CreateButton()
+    {
+        return new MacOSButton();
+    }
+
+    public override Checkbox CreateCheckbox()
+    {
+        return new MacOSCheckbox();
+    }
+}
+
+class Program
+{
+    static void Main()
+    {
+        // Create a Windows GUI
+        GUIFactory windowsFactory = new WindowsFactory();
+        Button windowsButton = windowsFactory.CreateButton();
+        Checkbox windowsCheckbox = windowsFactory.CreateCheckbox();
+
+        windowsButton.Render(); // Outputs "Rendering a Windows button."
+        windowsCheckbox.Render(); // Outputs "Rendering a Windows checkbox."
+
+        // Create a MacOS GUI
+        GUIFactory macosFactory = new MacOSFactory();
+        Button macosButton = macosFactory.CreateButton();
+        Checkbox macosCheckbox = macosFactory.CreateCheckbox();
+
+        macosButton.Render(); // Outputs "Rendering a MacOS button."
+        macosCheckbox.Render(); // Outputs "Rendering a MacOS checkbox."
+    }
+}
+```
 
 ### - Builder
 ### - Prototype
