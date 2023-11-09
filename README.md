@@ -135,7 +135,7 @@ A special method with the purpose of initializing objects from different classes
 
 Constructors have the same name as the class they belong to.
 
-Used for injecting dependencies.
+Used for e.g. injecting dependencies, singleton design pattern.
 
 ```C#
 public class BoardGameController : Controller
