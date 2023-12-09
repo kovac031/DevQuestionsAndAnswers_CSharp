@@ -557,6 +557,7 @@ MyDelegate operation = new MyDelegate();
 MyDelegate addMethod = operation.Add;
 MyDelegate subtractMethod = operation.Subtract;
 ```
+[better example from my repo](https://github.com/kovac031/FuncAndActionDelegatesIntro)
 
 ## 26. What are nullable types in C#?
 Data type which can hold null value ... e.g. int?, bool?
@@ -775,6 +776,7 @@ static void Main(string[] args)
 }
 static void Square(double nmb) => Console.WriteLine(Math.Pow(nmb, 2));
 ```
+[better example from my repo](https://github.com/kovac031/FuncAndActionDelegatesIntro)
 
 ## 43. What is Entity Framework?
 Entity Framework (EF) is an Object-Relational Mapping (ORM) framework developed by Microsoft.
