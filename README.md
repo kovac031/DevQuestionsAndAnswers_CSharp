@@ -413,10 +413,67 @@ https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/meth
 ## 13. Can multiple catch blocks be executed?
 No, only the first in the sequence.
 
-## 14. What are static properties and methods? ***
+## 14. What are static properties and methods? 
 Static properties/methods are properties/methods of a class, rather than properties/methods tied to objects created from that class.
 
-Used when we won't be creating objects BUT want the same properties or method to apply across instances of a class.
+> static method:
+```C#
+public class Calculator
+{
+	public static int Add(int x, int y) // static method
+	{
+		int result = x + y;
+		return result;
+	}
+}
+```
+```C#
+static void Main(string[] args)
+{
+	int number = Calculator.Add(5,10); // calling the static method without instantiating an object
+	Console.WriteLine(number);
+}
+```
+> static property:
+```C#
+static void Main(string[] args)
+{
+	Car car1 = new Car("Mustang");
+	Car car2 = new Car("Corvette");
+	Console.WriteLine(car1.numberOfCars); // prints 1 in first row
+	Console.WriteLine(car2.numberOfCars); // prints 1 in second row
+}
+class Car
+{
+	public int numberOfCars; // NO STATIC property, two objects are instantiated above with "new"
+
+	public Car(string model)
+	{
+		this.model = model;
+		numberOfCars++;
+	}
+}
+```
+```C#
+static void Main(string[] args)
+{
+	Car car1 = new Car("Mustang");
+	Car car2 = new Car("Corvette");
+
+	Console.WriteLine(Car.numberOfCars); // only prints 2	
+}
+class Car
+{
+	public static int numberOfCars; // STATIC property, belongs to the Car class and not the car1 or car2 objects
+
+	public Car(string model)
+	{
+		this.model = model;
+		numberOfCars++;
+	}
+}
+```
+Used when we won't be creating objects.
 
 ## 15. What is the purpose of using statement?
 ```C#
