@@ -1657,5 +1657,7 @@ In terms of Netflix, playing a video could be handled as one microservice, the r
 # Extras
 
 ## Getters and setters and auto-implemented properties
+
 https://www.youtube.com/watch?v=8FmE_-QXg3Y
+
 https://www.youtube.com/watch?v=Z70AwnYYJOc
