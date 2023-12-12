@@ -838,6 +838,10 @@ static readonly ImmutableList<int> numberList = new List<int> { 1, 2, 3 }.ToImmu
 static void Main(string[] args)
 {
 	numberList[0] = 5; // red underline, can't be changed
+
+	numberList.Add(12);
+	numberList.Remove(3); // ImmutableList allows for .Add and .Remove
+	// to disallow, change ImmutableList<> type to IReadOnlyList<>
 }
 ```
 
