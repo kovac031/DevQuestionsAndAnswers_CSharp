@@ -1271,6 +1271,11 @@ That way we masked (wrapped, adapted) our incompatible class/code to work with w
 [video explnation and example](https://www.youtube.com/watch?v=BvV84tzWLm0)
 
 ### - Facade
+
+We encapsulate (for lack of better terms) different classes in a new facade class, where we have those different classes injected with a constructor. This creates a dependency and allows for methods of the facade class to call the outside methods, like how calling a repository layer method from service layer would work ( _repository.MethodName(params) ) ...
+
+[video explanation and example](https://www.youtube.com/watch?v=z46yENs1RYw)
+
 ### - Decorator
 ### - Composite
 ### - Proxy
