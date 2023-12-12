@@ -1069,8 +1069,7 @@ Design patterns are typical solutions to commonly occurring problems in software
 ### Creational design patterns:
 > deals with Object Creation and Initialization
 
-### - Singleton
-  
+### - Singleton  
 Instead of creating new objects when we call a class (instantiate with "new"), we instead set it up so that the same object is used (we do ClassName.MethodName). [video](https://www.youtube.com/watch?v=r6Y0SmbufmU)
 
 ```C#
@@ -1093,7 +1092,6 @@ public class MyExample
 If multiple threads, it may violate singleton because additional instances may be created on different threads, [solution](https://www.youtube.com/watch?v=QWrcOmLWi_Q&list=PL6n9fhu94yhUbctIoxoVTrklN3LMwTCmd&index=4).
 
 ### - Factory Method
-
 A factory is an object which can create other objects. 
 
 Factory method design pattern is about creating objects without exposing the creation logic to the client. Subclasses choose which class to instantiate.
@@ -1261,7 +1259,6 @@ E.g. for real world usage, Windows vs MacOS UI both need buttons and checkboxes 
 > used to Manage the Structure of Classes and Interfaces and the Relationship Between the Classes and Interfaces
 
 ### - Adapter
-
 We have two classes with different behaviors, each inherit from their respective interfaces. We make an "adapted" class in which we inject the incompatible class via dependency injection AND which inherits from an interface we want methods from. BUT, we then change the contents of those methods (to behave like in the original class) while keeping the names and parameters so that the interface doesn't complain. 
 
 That way we masked (wrapped, adapted) our incompatible class/code to work with whatever needs the new setup and can't work with the original class, WITHOUT (!) changing or losing the original class, because some other code may still use it.
@@ -1271,7 +1268,6 @@ That way we masked (wrapped, adapted) our incompatible class/code to work with w
 [video explnation and example](https://www.youtube.com/watch?v=BvV84tzWLm0)
 
 ### - Facade
-
 We encapsulate (for lack of better terms) different classes in a new facade class, where we have those different classes injected with a constructor. This creates a dependency and allows for methods of the facade class to call the outside methods, like how calling a repository layer method from service layer would work ( _repository.MethodName(params) ) ...
 
 [video explanation and example](https://www.youtube.com/watch?v=z46yENs1RYw)
@@ -1288,7 +1284,7 @@ We encapsulate (for lack of better terms) different classes in a new facade clas
 > deal with the Communication Between Classes and Objects
 
 ### - Chain of Responsibility
-> Scenario where when something needs to be executed and fails or otherwise doesn't pass a check, it passes the responsibility to some other class, and so on, down a chain until the end.
+Scenario where when something needs to be executed and fails or otherwise doesn't pass a check, it passes the responsibility to some other class, and so on, down a chain until the end.
 
 > Similar concept to IF -> ELSE IF loops and other condition based loop logic.
 
@@ -1300,7 +1296,61 @@ We encapsulate (for lack of better terms) different classes in a new facade clas
 ### - State
 ### - TemplateMethod
 ### - Visitor
+
 ### - Strategy
+It's about polymorphism.
+
+```C#
+// set up interface and classes which inherit from this interface, as well as a context class
+interface IStrategy
+{
+    void Execute();
+}
+class SomeClass : IStrategy
+{
+    public void Execute()
+    {
+        Console.WriteLine("SomeClass execution");
+    }
+}
+class AnotherCLass : IStrategy
+{
+    public void Execute()
+    {
+        Console.WriteLine("AnotherClass execution");
+    }
+}
+class Context // this class is important as its ExecuteStrategy() method will be called later
+{
+    private IStrategy _strategy;
+
+    public Context(IStrategy strategy)
+    {
+        _strategy = strategy;
+    }
+    public void ExecuteStrategy()
+    {
+        _strategy.Execute();
+    }
+}
+// Here is where we actually use the Strategy pattern
+class Client
+{
+    static void Main()
+    {
+        IStrategy strategy1 = new SomeClass(); // instantiate the interface object as the child class object
+        Context context1 = new Context(strategy1); // instantiate the Context object and pass the IStrategy object (here SomeClass) as parameter
+        context1.ExecuteStrategy(); 	// in the Context class, enters the ExecuteStrategy, which realizes its parameter is SomeClass
+					// goes into SomeClass and does its Execute()
+					// does Console.WriteLine("SomeClass execution");
+        IStrategy strategy2 = new AnotherClass();
+        Context context2 = new Context(strategy2);
+        context2.ExecuteStrategy(); 	// does Console.WriteLine("AnotherClass execution");
+    }
+}
+```
+[video explanation and example](https://www.youtube.com/watch?v=qX0iZs_3VyU)
+
 ### - Mediator
 ### - Memento
 ### - Interpreter
