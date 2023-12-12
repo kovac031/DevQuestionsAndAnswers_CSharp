@@ -717,31 +717,129 @@ using DAL;
 A data structure which allows for storing and manipulating a collection of indexed elements of the same data type.
 
 ## 34. What kinds of collections exist in C#? **
-> Arrays
+Arrays
+> indexed, fixed size that needs to be declared in advance, no dynamic resizing
+```C#
+int[] integerArray = new int[] { 1, 2, 3, 4, 5 };
+```
+> int[], bool[], string[] etc
 
-> BitArray
+BitArray
+> indexed and fixed size, for storing boolean values
+```C#
+BitArray bitArray = new BitArray(new bool[] { true, false, true, false });
+```
 
-> Lists
+Lists
+> dynamic arrays, no fix size, add and remove elemenets as you want = dynamic resizing
 
-> ArrayList
+ArrayList
+> ...
 
-> LinkedList
+LinkedList
+> ...
 
-> Dictionaries
+Dictionaries
+> used to associate keys with values, providing efficient lookup based on keys
+```C#
+Dictionary<string, int> ageDictionary = new Dictionary<string, int>(); // Creating a dictionary
 
-> Queues
+ageDictionary["Alice"] = 25; // Adding key-value pairs
+ageDictionary["Bob"] = 30;
+ageDictionary["Charlie"] = 22;
 
-> Stacks
+int bobAge = ageDictionary["Bob"]; // Retrieving values // Returns 30 
+bool hasAlice = ageDictionary.ContainsKey("Alice"); // Checking if a key exists // Returns true
+```
 
-> HashSet
+Enum
+> used to define a set of named integral constants, where each constant represents a unique symbolic name for a value
+```C#
+enum DaysOfWeek
+{
+    Monday = 1,
+    Tuesday = 2,
+    Wednesday = 3,
+    // ... 
+}
+DaysOfWeek today = DaysOfWeek.Wednesday; // Using an enum value // today will be Wed
+int numericValue = (int)today; // Enum to integer conversion // numericValue = 3
+```
 
-> SortedSet
+Queues
+> FIFO, "enqueue" adds an element to the end of the queue, "dequeue" removes and returns the element from the front of the queue
+```C#
+Queue<string> taskQueue = new Queue<string>();
+taskQueue.Enqueue("Task1");
+taskQueue.Enqueue("Task2");
+string nextTask = taskQueue.Dequeue(); // nextTask is Task1, taskQueue only has Task2 now
+```
 
-> Hashtable
+Stacks
+> LIFO, "push" adds an element to the top of the stack, "pop" removes and returns the element from the top of the stack
+```C#
+Stack<string> callStack = new Stack<string>();
+callStack.Push("Function1");
+callStack.Push("Function2");
+string currentFunction = callStack.Pop(); // // currentFunction: "Function2", callStack: ["Function1"]
+```
 
-> Concurrent Collections
+HashSet
+> for storing a collection of unique elements with no duplicates, add/remove/contains
+```C#
+HashSet<int> uniqueNumbers = new HashSet<int>();
+uniqueNumbers.Add(5);
+uniqueNumbers.Add(10);
+bool containsTen = uniqueNumbers.Contains(10); // Returns true
+```
 
-> Immutable Collections
+Hashtable
+> similar to dictionaires and enum
+```C#
+Hashtable employeeSalaries = new Hashtable();
+employeeSalaries.Add("Alice", 50000);
+employeeSalaries.Add("Bob", 60000);
+
+if (employeeSalaries.ContainsKey("Alice"))
+{
+    int aliceSalary = (int)employeeSalaries["Alice"];
+    Console.WriteLine($"Alice's salary is: {aliceSalary}");
+}
+```
+
+SortedSet
+> stores elements in sorted order, eliminating duplicates (ignores adding them)
+```C#
+SortedSet<int> sortedSet = new SortedSet<int>();
+sortedSet.Add(3);
+sortedSet.Add(1);
+sortedSet.Add(2);
+
+int min = sortedSet.Min; // Retrieves the minimum element (1)
+int max = sortedSet.Max; // Retrieves the maximum element (3)
+bool contains = sortedSet.Contains(3); // Returns true
+```
+
+Concurrent Collections
+> for concurrent programming scenarios where multiple threads can access and modify the collection concurrently, part of System.Collections.Concurrent namespace, provide thread-safe operations without the need for explicit locking (e.g., lock keyword)
+
+> ConcurrentQueue, ConcurrentStack, ConcurrentBag, ConcurrentDictionary, BlockingCollection
+```C#
+ConcurrentDictionary<string, int> concurrentDict = new ConcurrentDictionary<string, int>();
+concurrentDict.TryAdd("Alice", 30);
+int aliceAge = concurrentDict.GetOrAdd("Alice", 25); // Returns 30 (existing value)
+```
+
+Immutable Collections
+>  state cannot be modified after creation, part of System.Collections.Immutable namespace, trying to change the collection creates new instances
+```C#
+static readonly ImmutableList<int> numberList = new List<int> { 1, 2, 3 }.ToImmutableList
+
+static void Main(string[] args)
+{
+	numberList[0] = 5; // red underline, can't be changed
+}
+```
 
 ## 35. What is LINQ?
 LINQ (Language Integrated Query) is a powerful feature in C# and .NET that enables you to query and manipulate collections of data in a more concise, readable, and expressive manner. LINQ provides a unified query syntax to work with various data sources, such as arrays, collections, databases, XML, and more.
