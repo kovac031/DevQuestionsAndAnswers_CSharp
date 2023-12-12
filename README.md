@@ -1417,8 +1417,26 @@ WHERE condition;
 
 ## 9. What is a temp table / table variable and when would you use it?
 [Temporary tables](https://www.c-sharpcorner.com/UploadFile/rohatash/temporary-tables-in-sql-server-2012/) are created for temporary uses (doing some calculations to produce data that we don't want to permanently store), is dropped after session is over.
+```SQL
+create table #table_name
+(
+column_name varchar(20),
+column_no int
+)
+-- some stuff
+DROP TABLE #table_name -- it's a temporary table, not a variable, it can be located as a file
+Print 'Deleted table'
+```
 
 [Table variable](https://www.c-sharpcorner.com/UploadFile/75a48f/table-variable-in-sql-server/) is used similarly, except it is a variable stored in memory instead of the database, and does not exist outside of the query it is supposed to execute.
+```SQL
+Declare @TempTable TABLE(
+id int,
+Name varchar(20)
+)
+-- some stuff
+Select * from @TempTable -- must be executed along with the part above or it does not see the variable
+```
 
 ## 10. What is an index and what is its purpose?
 Index is a data structure which references values found in table columns. They are just used to speed up searches/queries. [video](https://www.youtube.com/watch?v=fsG1XaZEa78)
