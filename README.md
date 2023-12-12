@@ -679,7 +679,11 @@ class SomeClass
 ```
 
 ## 29. Explain extension methods.
-Static methods within static classes where we implement functionality that would otherwise clutter or be repeated (counter DRY) in main methods. Easier and cleaner to just call a helper method from outside.
+Static methods within static classes where we implement functionality that want to ADD to an existing class or method, and it is done by simply calling this new method from within the method or class we want to extend functionality for.
+
+> method has "this" keyword in its parameter
+
+[video](https://www.youtube.com/watch?v=iI9sfsMIZE8)
 
 ## 30. What is reflection in C#? *
 Reflection is the ability of a code to access the metadata of the assembly during runtime. We're retrieving some specific info we need.
