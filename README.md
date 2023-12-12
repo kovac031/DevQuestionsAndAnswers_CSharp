@@ -1288,6 +1288,12 @@ We encapsulate (for lack of better terms) different classes in a new facade clas
 > deal with the Communication Between Classes and Objects
 
 ### - Chain of Responsibility
+> Scenario where when something needs to be executed and fails or otherwise doesn't pass a check, it passes the responsibility to some other class, and so on, down a chain until the end.
+
+> Similar concept to IF -> ELSE IF loops and other condition based loop logic.
+
+[video explanation and example](https://www.youtube.com/watch?v=d_z_l7cD4rg)
+
 ### - Command
 ### - Observer
 ### - Iterator
