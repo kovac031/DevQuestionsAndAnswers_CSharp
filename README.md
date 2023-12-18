@@ -968,8 +968,12 @@ public class MyDbContext : DbContext
 ```
 
 ## 45. Explain asynchronous method calls with async/await pattern.
-Asynchronous refers to a style of executing tasks where a program doesn't need to wait for one task to complete before moving on to the next one.
+In asynchronous execution, every Task (keyword) creates a new thread that executes code in parallel. 
 
+Synchronous execution runs line by line, method by method, it does not start executing new tasks before the previous one is complete.
+> Three runners starting the race at or nearly the same time (async) VS one runner starting, finishing, then the second one running, and so on ...
+
+The "await" keyword is a required part of the async syntax and cannot be ommited. It indicates end of thread utilization.
 ```C#
 async Task<int> CalculateAsync()
 {
