@@ -483,12 +483,17 @@ For including the System namespace, which has its own classes etc, so we don't h
 ```C#
 System.Console.WriteLine(...);
 ```
+This also let's me define an alias for the namespace, such as "using BLORB = System;"
+Also, I can use static classes with using, such as "using static System.Math;" ... so then I don't have to write Math.Abs();, I just write Abs();
+
 Or to define a scope, resource management/cleanup:
 ```C#
 using (SqlConnection connection = new SqlConnection(connectionString))
 {
 }
 ```
+The connection/stream is closed automatically and anything in the memory is disposed of by the garbage collector (it implements the IDisposable interface).
+Alternatively there is connection.Dispose();
 
 ## 16. What is serialization?
 Serialization converts complex objects, which may contain various data types and nested structures, into a stream of bytes or a textual format.
