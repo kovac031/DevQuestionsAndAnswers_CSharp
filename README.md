@@ -1859,19 +1859,33 @@ https://www.youtube.com/watch?v=Z70AwnYYJOc
 ## Aliases in C#
 
 object:  System.Object
+
 string:  System.String
+
 bool:    System.Boolean
+
 byte:    System.Byte
+
 sbyte:   System.SByte
+
 short:   System.Int16
+
 ushort:  System.UInt16
+
 int:     System.Int32
+
 uint:    System.UInt32
+
 long:    System.Int64
+
 ulong:   System.UInt64
+
 float:   System.Single
+
 double:  System.Double
+
 decimal: System.Decimal
+
 char:    System.Char
 
 > A method called ReadInt32 is unambiguous, whereas a method called ReadInt requires interpretation. The caller could be using a language that defines an int alias for Int16, for example. The .NET framework designers have followed this pattern, good examples being in the BitConverter, BinaryReader and Convert classes.
