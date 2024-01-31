@@ -1889,3 +1889,16 @@ decimal: System.Decimal
 char:    System.Char
 
 > A method called ReadInt32 is unambiguous, whereas a method called ReadInt requires interpretation. The caller could be using a language that defines an int alias for Int16, for example. The .NET framework designers have followed this pattern, good examples being in the BitConverter, BinaryReader and Convert classes.
+
+## List VS IEnumerable
+
+IEnumerable can be more memory-efficient, as it processes elements one at a time without requiring the entire collection to be loaded into memory.
+
+Lazy Evaluation, deferred execution and generates elements on-demand.
+
+> for e.g. streaming a large set of data
+
+List does Eager evaluation - loads the entire collection to memory, meaning it will have it at the ready when you need to do something with the collection. Faster.
+
+
+
