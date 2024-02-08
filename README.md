@@ -875,7 +875,9 @@ List<StudentDTO> filteredDTO = filteredList.Skip((pageNumber - 1) * pageSize)
 ```
 
 ## 36. Describe the difference between IEnumerable and IQueryable.
-Both are for handling collections, but IEnumerable executes immediately and stores a collection in memory, which is performance heavy, while IQueryable builds a query and does not execute until .ToList
+The distinction is relevant in the context of making database calls.
+
+IEnumerable executes immediately and stores a collection in memory, which is performance heavy, while IQueryable builds a query and does not execute until .ToList
 
 ```C#
 IEnumerable<Customer> collection = db.GetCustomersAsEnumerable(); // gets all customers
@@ -889,6 +891,8 @@ goodCustomers = query.Where(c => c.Revenue > 2500);) // again, no customers
 
 var goodCustomersList = goodCustomers.ToList(); // gets some amount of customers based on criteria
 ```
+
+Because IEnumerable uses deferred execution, it can cause issues in specific situations - such as when you need to iterate and filter through a collection. Unlike a list, it will not have the entire collection stored in memory, but rather it will have to fetch it anew for each operation on an item (note to self, make a project to showcase the difference).
 
 ## 37. Describe the concept of lazy loading. *
 The approach in designing your code so that required data is loaded as necessary instead of in advance. E.g. not loading an entire list first and then narrowing it down.
