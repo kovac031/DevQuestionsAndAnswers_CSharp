@@ -994,6 +994,15 @@ If no await keyword inside the method, the method will run synchronously despite
 
 Super detailed examples for good and bad practices: [AsyncGuidance by David Fowl](https://github.com/davidfowl/AspNetCoreDiagnosticScenarios/blob/master/AsyncGuidance.md)
 
+A cool example of using asynchronous code to execute methods in parallel:
+```C#
+var one = RunMethodOne();
+var two = RunMethodTwo();
+var three = RunMethodThree();
+
+await Task.WhenAll(one, two, three);
+```
+
 ## 46. What is Dependency Injection. How and why is it used?
 Passing the classes that your class depends on as interfaces via the constructor rather than having your class create those dependencies.
 
