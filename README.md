@@ -990,6 +990,7 @@ async Task<int> CalculateAsync()
     return result;
 }
 ```
+If no await keyword inside the method, the method will run synchronously despite the async Task declaration, which may therefore be removed.
 
 ## 46. What is Dependency Injection. How and why is it used?
 Passing the classes that your class depends on as interfaces via the constructor rather than having your class create those dependencies.
