@@ -41,9 +41,10 @@ public class Person
    {
       // code
    }
+
+    public bool Validate() [...]
+    public bool SomethingElse() [...]
 }
-public bool Validate() [...]
-public bool SomethingElse() [...]
 ```
 ... and calling methods individually ...
 ```C#
