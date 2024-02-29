@@ -1917,5 +1917,25 @@ Lazy Evaluation, deferred execution and generates elements on-demand.
 
 List does Eager evaluation - loads the entire collection to memory, meaning it will have it at the ready when you need to do something with the collection. Faster.
 
+## password hashing in Microsoft.AspNetCore.Identity
 
+```C#
+using Microsoft.AspNetCore.Identity;
+```
+```C#
+// PASSWORD HASHING PROCESS
+IdentityUser identityUser = new IdentityUser { UserName = usernameString };
+PasswordHasher<IdentityUser> passwordHasher = new PasswordHasher<IdentityUser>();
+
+string hashedPasswordString = passwordHasher.HashPassword(identityUser, typedInPasswordString);
+```
+```C#
+// VERIFYING PASSWORD HASH
+IdentityUser identityUser = new IdentityUser { UserName = usernameString };
+PasswordHasher<IdentityUser> passwordHasher = new PasswordHasher<IdentityUser>();
+
+PasswordVerificationResult verificationResult = passwordHasher.VerifyHashedPassword(identityUser, hashedPasswordString, typedInPasswordString);
+// if (verificationResult == PasswordVerificationResult.Success) {}
+```
+Needs no extra column. Salt is attached to the typed password before being turned into hashed password, then the hashed password is stored to DB.
 
