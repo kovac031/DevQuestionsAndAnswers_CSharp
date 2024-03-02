@@ -978,31 +978,35 @@ public class MyDbContext : DbContext
 ```
 
 ## 45. Explain asynchronous method calls with async/await pattern.
-In asynchronous execution, every Task (keyword) creates a new thread that executes code in parallel. 
-
-Synchronous execution runs line by line, method by method, it does not start executing new tasks before the previous one is complete.
-> Three runners starting the race at or nearly the same time (async) VS one runner starting, finishing, then the second one running, and so on ...
+In asynchronous execution, declaring a method as "async Task" enables it to run asynchronously. But, to run concurrently (at the same time) it needs to be structured like this:
+```C#
+Task updateTimeUpdated = _deckService.UpdateTimeUpdatedForDeckByIdAsync(deckId); // method itself is declared async Task
+Task removePlaceholder = _sharedCRUD.RemovePlaceholderFlashcardAsync(deckId); // -||-
+await Task.WhenAll(updateTimeUpdated, removePlaceholder); // the two methods start at the same time here, and code execution awaits them to finish before moving on because of await
+```
 
 The "await" keyword is a required part of the async syntax and cannot be ommited. It indicates end of thread utilization.
+
+But, even if there is no Tasks inside the method, it is good to use async where possible, because apps come with a limitied thread pool and once the awaited execution completes, it frees up the thread to be used by aything else, including whatever other users may be doing.
+
+Gemini says:
+> If many requests hit the synchronous method at once, you could exhaust the available threads in the pool. New requests would have to wait in a queue until threads are freed up.
+
+Example here (also, I/O operations like database calls are recommended to be done asynchronously):
 ```C#
-async Task<int> CalculateAsync()
+public async Task DoSomethingAsync(Guid deckId)
 {
-    int result = await SomeAsyncOperation();
-    return result;
+    // code
+    int affectedRows = await _database.ExecuteQueryAsync(parameters, sqlQuery);
 }
 ```
+
 If no await keyword inside the method, the method will run synchronously despite the async Task declaration, which may therefore be removed.
 
+Synchronous execution runs on one thread line by line, method by method, the thread is blocked until everything is complete.
+> Three runners starting the race at or nearly the same time (async) VS one runner starting, finishing, then the second one running, and so on ...
+
 Super detailed examples for good and bad practices: [AsyncGuidance by David Fowl](https://github.com/davidfowl/AspNetCoreDiagnosticScenarios/blob/master/AsyncGuidance.md)
-
-A cool example of using asynchronous code to execute methods in parallel:
-```C#
-var one = RunMethodOne();
-var two = RunMethodTwo();
-var three = RunMethodThree();
-
-await Task.WhenAll(one, two, three);
-```
 
 ## 46. What is Dependency Injection. How and why is it used?
 Passing the classes that your class depends on as interfaces via the constructor rather than having your class create those dependencies.
